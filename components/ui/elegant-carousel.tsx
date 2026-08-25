@@ -21,7 +21,7 @@ const slides: SlideData[] = [
     subtitle: 'İş Süreçlerinize %100 Uyumlu Mimariler',
     description:
       'Şirketinizin ihtiyaçlarına özel sıfırdan tasarlanan web sistemleri, iOS/Android mobil uygulamalar ve yüksek performanslı kurumsal yazılım çözümleri.',
-    accent: '#00F5D4',
+    accent: '#E50914',
     imageUrl:
       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=900&fit=crop&q=80',
     ctaText: 'Yazılım Çözümlerini İncele',
@@ -34,7 +34,7 @@ const slides: SlideData[] = [
     subtitle: 'Kesintisiz %99.98 Uptime & 1 Gbps Port',
     description:
       '%100 Paylaşımsız CPU/RAM kaynakları, Tier III İstanbul Veri Merkezi altyapısı, donanımsal DDoS koruması ve ultra hızlı NVMe SSD depolama.',
-    accent: '#06B6D4',
+    accent: '#111111',
     imageUrl:
       'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=900&fit=crop&q=80',
     ctaText: 'Sunucu Paketlerini İncele',
@@ -47,7 +47,7 @@ const slides: SlideData[] = [
     subtitle: 'LLM, ChatBot & Kurumsal Otomasyon',
     description:
       'OpenAI, Gemini ve Claude entegrasyonlu akıllı şirket içi asistanlar, otomatik doküman işleme ve gerçek zamanlı iş zekası analitik panelleri.',
-    accent: '#10B981',
+    accent: '#E50914',
     imageUrl:
       'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=900&fit=crop&q=80',
     ctaText: 'Yapay Zekâ Çözümleri',
@@ -60,7 +60,7 @@ const slides: SlideData[] = [
     subtitle: 'Pazaryeri & GİB E-Fatura Entegrasyonu',
     description:
       'Trendyol, Amazon, Hepsiburada, Logo ve banka sanal POS sistemlerini tek merkezden yöneten uçtan uca kurumsal entegrasyon altyapısı.',
-    accent: '#818CF8',
+    accent: '#111111',
     imageUrl:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=900&fit=crop&q=80',
     ctaText: 'Kurumsal Sistemleri Gör',
@@ -162,7 +162,7 @@ export default function ElegantCarousel() {
       <div
         className="carousel-bg-wash"
         style={{
-          background: `radial-gradient(ellipse at 70% 50%, ${currentSlide.accent}20 0%, transparent 70%)`,
+          background: `radial-gradient(ellipse at 70% 50%, #E5091410 0%, transparent 70%)`,
         }}
       />
 
@@ -174,8 +174,8 @@ export default function ElegantCarousel() {
             <div
               className={`carousel-collection-num ${isTransitioning ? 'transitioning' : 'visible'}`}
             >
-              <span className="carousel-num-line" style={{ background: currentSlide.accent }} />
-              <span className="carousel-num-text" style={{ color: currentSlide.accent }}>
+              <span className="carousel-num-line" style={{ background: '#E50914' }} />
+              <span className="carousel-num-text" style={{ color: '#E50914' }}>
                 {String(currentIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
               </span>
             </div>
@@ -190,7 +190,7 @@ export default function ElegantCarousel() {
             {/* Subtitle */}
             <p
               className={`carousel-subtitle ${isTransitioning ? 'transitioning' : 'visible'}`}
-              style={{ color: currentSlide.accent }}
+              style={{ color: '#E50914' }}
             >
               {currentSlide.subtitle}
             </p>
@@ -206,11 +206,7 @@ export default function ElegantCarousel() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href={currentSlide.ctaLink}
-                className="flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold text-[#070E1B] shadow-xl transition-all hover:scale-105"
-                style={{
-                  background: `linear-gradient(135deg, ${currentSlide.accent}, #FFFFFF)`,
-                  boxShadow: `0 10px 25px -5px ${currentSlide.accent}40`
-                }}
+                className="flex items-center gap-2 rounded-xl bg-[#E50914] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#E50914]/25 transition-all hover:bg-[#B91C1C] hover:scale-105"
               >
                 <span>{currentSlide.ctaText}</span>
                 <ArrowRight className="h-4 w-4" />
@@ -218,7 +214,7 @@ export default function ElegantCarousel() {
 
               <Link
                 href={currentSlide.secondaryCtaLink}
-                className="flex items-center gap-2 rounded-xl border border-slate-700 bg-[#0B1528]/80 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-md transition-all hover:border-white hover:bg-[#102038]"
+                className="flex items-center gap-2 rounded-xl border border-[#E5E5E5] bg-white px-6 py-3.5 text-sm font-bold text-[#111111] shadow-xs transition-all hover:border-[#111111] hover:bg-slate-50"
               >
                 {currentSlide.secondaryCtaText}
               </Link>
@@ -231,7 +227,7 @@ export default function ElegantCarousel() {
                 className="carousel-arrow-btn"
                 aria-label="Previous slide"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -240,7 +236,7 @@ export default function ElegantCarousel() {
                 className="carousel-arrow-btn"
                 aria-label="Next slide"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
@@ -261,14 +257,14 @@ export default function ElegantCarousel() {
             <div
               className="carousel-image-overlay"
               style={{
-                background: `linear-gradient(135deg, ${currentSlide.accent}30 0%, transparent 60%)`,
+                background: `linear-gradient(135deg, rgba(229,9,20,0.12) 0%, transparent 60%)`,
               }}
             />
           </div>
 
           {/* Decorative frame corner */}
-          <div className="carousel-frame-corner carousel-frame-corner--tl" style={{ borderColor: currentSlide.accent }} />
-          <div className="carousel-frame-corner carousel-frame-corner--br" style={{ borderColor: currentSlide.accent }} />
+          <div className="carousel-frame-corner carousel-frame-corner--tl" style={{ borderColor: '#E50914' }} />
+          <div className="carousel-frame-corner carousel-frame-corner--br" style={{ borderColor: '#111111' }} />
         </div>
       </div>
 
@@ -286,7 +282,7 @@ export default function ElegantCarousel() {
                 className="carousel-progress-fill"
                 style={{
                   width: index === currentIndex ? `${progress}%` : index < currentIndex ? '100%' : '0%',
-                  backgroundColor: index === currentIndex ? currentSlide.accent : undefined,
+                  backgroundColor: index === currentIndex ? '#E50914' : undefined,
                 }}
               />
             </div>

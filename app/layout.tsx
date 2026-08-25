@@ -37,7 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#070E1B] text-[#F8FAFC] antialiased selection:bg-cyan-500 selection:text-[#070E1B]">
+      <body className="min-h-screen bg-[#F9F9F9] text-[#111111] antialiased selection:bg-[#E50914] selection:text-white">
         <Header />
         {children}
       </body>

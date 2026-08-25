@@ -17,18 +17,18 @@ export const siteMenus: IMenu[] = [
     items: [
       {
         id: 21,
-        title: 'Domain Sorgulama & Kayıt (.com, .net, .tr)',
-        url: '/alan-adi/sorgulama',
+        title: 'Alan Adı Tescili & Sorgulama',
+        url: '/alan-adi',
       },
       {
         id: 22,
-        title: 'Domain Transfer',
-        url: '/alan-adi/transfer',
+        title: 'Alan Adı Transfer',
+        url: '/alan-adi',
       },
       {
         id: 23,
         title: 'Whois Gizleme & DNS Yönetimi',
-        url: '/alan-adi/dns-whois',
+        url: '/alan-adi',
       },
     ],
   },
@@ -40,23 +40,18 @@ export const siteMenus: IMenu[] = [
     items: [
       {
         id: 31,
-        title: 'SSD Web Hosting (cPanel / LiteSpeed)',
-        url: '/web-hosting/ssd-hosting',
+        title: 'Ekonomik SSD Hosting',
+        url: '/web-hosting?kategori=ekonomik',
       },
       {
         id: 32,
-        title: 'Reseller (Bayi) Hosting',
-        url: '/web-hosting/reseller-hosting',
+        title: 'Profesyonel SSD Hosting',
+        url: '/web-hosting?kategori=profesyonel',
       },
       {
         id: 33,
-        title: 'VDS / VPS Sanal Sunucu (NVMe SSD)',
-        url: '/web-hosting/vds-sunucu',
-      },
-      {
-        id: 34,
-        title: 'Co-Location Sunucu Barındırma (Tier III)',
-        url: '/web-hosting/co-location',
+        title: 'Bayi (Reseller) Hosting',
+        url: '/web-hosting?kategori=reseller',
       },
     ],
   },
@@ -95,11 +90,6 @@ export const siteMenus: IMenu[] = [
         id: 46,
         title: 'Yapay Zekâ (LLM) & Veri Çözümleri',
         url: '/yazilim/yapay-zeka',
-      },
-      {
-        id: 47,
-        title: 'Tekstil & Sektörel Otomasyonlar',
-        url: '/yazilim/sektorel-yazilim',
       },
     ],
   },

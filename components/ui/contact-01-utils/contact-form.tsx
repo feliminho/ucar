@@ -31,17 +31,17 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <Card className="border-white/15 bg-[#11131C] text-white p-8 text-center rounded-3xl shadow-2xl">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/20 text-cyan-400 mx-auto mb-5 border border-cyan-500/40">
+      <Card className="border-[#E5E5E5] bg-white text-[#111111] p-8 text-center rounded-3xl shadow-xl">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-red-50 text-[#E50914] mx-auto mb-5 border border-red-200">
           <CheckCircle2 className="h-8 w-8" />
         </div>
-        <CardTitle className="text-2xl font-bold text-white mb-2">Talebiniz Alındı!</CardTitle>
-        <CardDescription className="text-slate-300 text-sm mb-6">
+        <CardTitle className="text-2xl font-bold text-[#111111] mb-2">Talebiniz Alındı!</CardTitle>
+        <CardDescription className="text-[#555555] text-sm mb-6">
           Mesajınız başarıyla iletildi. Uzman ekibimiz en geç 15 dakika içinde sizinle iletişime geçecektir.
         </CardDescription>
         <Button
           onClick={() => setSubmitted(false)}
-          className="bg-white text-black hover:bg-slate-200 font-bold rounded-xl px-6"
+          className="bg-[#E50914] text-white hover:bg-[#B91C1C] font-bold rounded-xl px-6"
         >
           Yeni Mesaj Gönder
         </Button>
@@ -50,12 +50,12 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="border-white/10 bg-[#11131C] text-white shadow-2xl rounded-3xl overflow-hidden">
+    <Card className="border border-[#E5E5E5] bg-white text-[#111111] shadow-xl shadow-slate-200/50 rounded-3xl overflow-hidden">
       <CardHeader className="p-7 pb-4">
-        <CardTitle className="text-xl sm:text-2xl font-bold text-white">
+        <CardTitle className="text-xl sm:text-2xl font-bold text-[#111111]">
           Proje & Teklif Talep Formu
         </CardTitle>
-        <CardDescription className="text-xs sm:text-sm text-slate-400">
+        <CardDescription className="text-xs sm:text-sm text-[#555555]">
           İhtiyacınızı belirtin, aynı gün içinde teknik teklif hazırlayalım.
         </CardDescription>
       </CardHeader>
@@ -65,21 +65,21 @@ export default function ContactForm() {
           
           {/* Ad Soyad */}
           <div className="space-y-1.5">
-            <Label htmlFor="fullname" className="text-xs font-semibold text-slate-300">
+            <Label htmlFor="fullname" className="text-xs font-semibold text-[#111111]">
               Ad Soyad *
             </Label>
             <Input
               id="fullname"
               required
               placeholder="Örn: Ahmet Yılmaz"
-              className="bg-[#0A0B10] border-white/10 text-white placeholder:text-slate-600 focus-visible:ring-cyan-400 rounded-xl"
+              className="bg-[#F9F9F9] border-[#E5E5E5] text-[#111111] placeholder:text-slate-400 focus-visible:ring-[#E50914] rounded-xl"
             />
           </div>
 
           {/* E-posta & Telefon */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="email" className="text-xs font-semibold text-slate-300">
+              <Label htmlFor="email" className="text-xs font-semibold text-[#111111]">
                 Kurumsal E-Posta *
               </Label>
               <Input
@@ -87,12 +87,12 @@ export default function ContactForm() {
                 type="email"
                 required
                 placeholder="ahmet@sirketiniz.com"
-                className="bg-[#0A0B10] border-white/10 text-white placeholder:text-slate-600 focus-visible:ring-cyan-400 rounded-xl"
+                className="bg-[#F9F9F9] border-[#E5E5E5] text-[#111111] placeholder:text-slate-400 focus-visible:ring-[#E50914] rounded-xl"
               />
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="phone" className="text-xs font-semibold text-slate-300">
+              <Label htmlFor="phone" className="text-xs font-semibold text-[#111111]">
                 Telefon Numarası *
               </Label>
               <Input
@@ -100,21 +100,21 @@ export default function ContactForm() {
                 type="tel"
                 required
                 placeholder="05XX XXX XX XX"
-                className="bg-[#0A0B10] border-white/10 text-white placeholder:text-slate-600 focus-visible:ring-cyan-400 rounded-xl"
+                className="bg-[#F9F9F9] border-[#E5E5E5] text-[#111111] placeholder:text-slate-400 focus-visible:ring-[#E50914] rounded-xl"
               />
             </div>
           </div>
 
           {/* İlgilenilen Hizmet Alanı */}
           <div className="space-y-1.5">
-            <Label className="text-xs font-semibold text-slate-300">
+            <Label className="text-xs font-semibold text-[#111111]">
               İlgilendiğiniz Hizmet Alanı *
             </Label>
             <Select required defaultValue="ozel-yazilim">
-              <SelectTrigger className="bg-[#0A0B10] border-white/10 text-white rounded-xl">
+              <SelectTrigger className="bg-[#F9F9F9] border-[#E5E5E5] text-[#111111] rounded-xl">
                 <SelectValue placeholder="Hizmet Seçiniz" />
               </SelectTrigger>
-              <SelectContent className="bg-[#11131C] border-white/10 text-white">
+              <SelectContent className="bg-white border-[#E5E5E5] text-[#111111]">
                 <SelectItem value="ozel-yazilim">💻 Özel Yazılım & Web Portalı</SelectItem>
                 <SelectItem value="mobil-uygulama">📱 Mobil Uygulama (iOS / Android)</SelectItem>
                 <SelectItem value="erp-crm">🏢 ERP / CRM / Muhasebe Entegrasyonu</SelectItem>
@@ -128,21 +128,21 @@ export default function ContactForm() {
 
           {/* Mesaj / Proje Özeti */}
           <div className="space-y-1.5">
-            <Label htmlFor="message" className="text-xs font-semibold text-slate-300">
+            <Label htmlFor="message" className="text-xs font-semibold text-[#111111]">
               Proje Detayı veya Sorularınız
             </Label>
             <Textarea
               id="message"
               rows={3}
               placeholder="Projenizin kapsamı, beklentileriniz ve teslim süresi hakkında kısaca bilgi verin..."
-              className="bg-[#0A0B10] border-white/10 text-white placeholder:text-slate-600 focus-visible:ring-cyan-400 rounded-xl resize-none"
+              className="bg-[#F9F9F9] border-[#E5E5E5] text-[#111111] placeholder:text-slate-400 focus-visible:ring-[#E50914] rounded-xl resize-none"
             />
           </div>
 
           {/* KVKK Checkbox */}
           <div className="flex items-center space-x-2 pt-1">
-            <Checkbox id="kvkk" required className="border-white/20 data-[state=checked]:bg-white data-[state=checked]:text-black" />
-            <Label htmlFor="kvkk" className="text-[11px] text-slate-400 leading-tight">
+            <Checkbox id="kvkk" required className="border-[#E5E5E5] data-[state=checked]:bg-[#E50914] data-[state=checked]:text-white" />
+            <Label htmlFor="kvkk" className="text-[11px] text-[#555555] leading-tight">
               KVKK Aydınlatma Metni'ni ve Gizlilik Sözleşmesi'ni okudum, kabul ediyorum.
             </Label>
           </div>
@@ -153,7 +153,7 @@ export default function ContactForm() {
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-white text-black hover:bg-slate-200 font-bold rounded-xl py-3.5 flex items-center justify-center gap-2 shadow-xl shadow-white/10 transition-all hover:scale-[1.02]"
+            className="w-full bg-[#E50914] text-white hover:bg-[#B91C1C] font-bold rounded-xl py-3.5 flex items-center justify-center gap-2 shadow-lg shadow-[#E50914]/25 transition-all hover:scale-[1.02]"
           >
             <span>{loading ? 'Gönderiliyor...' : 'Teklif Talebini Gönder'}</span>
             <Send className="h-4 w-4" />

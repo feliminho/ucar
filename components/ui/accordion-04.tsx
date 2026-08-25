@@ -71,7 +71,7 @@ const defaultItems: FAQItem[] = [
     id: '08',
     title: 'Nasıl teklif alabilir veya demo randevusu oluşturabilirim?',
     content:
-      "Sitemizdeki 'Teklif Al' butonunu kullanabilir, info@furkantech.com adresine yazabilir veya doğrudan çağrı merkezimizle iletişime geçerek aynı gün içinde detaylı teknik teklif alabilirsiniz.",
+      "Sitemizdeki 'Teklif Al' butonunu kullanabilir, info@ucaryazilim.com adresine yazabilir veya doğrudan çağrı merkezimizle iletişime geçerek aynı gün içinde detaylı teknik teklif alabilirsiniz.",
     tag: 'Teklif & İletişim',
   },
 ];
@@ -84,21 +84,21 @@ export function Accordion04({ items = defaultItems }: { items?: FAQItem[] }) {
           <AccordionItem
             value={item.id}
             key={item.id}
-            className="rounded-2xl border border-slate-800/80 bg-[#0B1528] overflow-hidden transition-all duration-300 data-[state=open]:border-cyan-500/50 data-[state=open]:shadow-xl data-[state=open]:shadow-cyan-500/5"
+            className="rounded-2xl border border-[#E5E5E5] bg-white overflow-hidden transition-all duration-300 shadow-xs data-[state=open]:border-[#E50914]/40 data-[state=open]:shadow-md data-[state=open]:shadow-red-500/5"
           >
-            <AccordionTrigger className="text-left p-2 data-[state=open]:rounded-b-none data-[state=open]:bg-cyan-500/10 duration-300 hover:no-underline cursor-pointer [&>svg]:hidden">
+            <AccordionTrigger className="text-left p-2 data-[state=open]:rounded-b-none data-[state=open]:bg-red-50/50 duration-300 hover:no-underline cursor-pointer [&>svg]:hidden">
               <div className="flex flex-1 px-5 py-3 justify-between items-center gap-4">
                 <div className="flex items-center gap-3.5">
-                  <span className="font-mono text-xs font-bold text-cyan-400 rounded-md bg-slate-900 border border-slate-700/60 px-2 py-1">
+                  <span className="font-mono text-xs font-bold text-[#E50914] rounded-md bg-[#F4F4F0] border border-[#E5E5E5] px-2 py-1">
                     {item.id}
                   </span>
-                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                  <h3 className="text-base sm:text-lg font-bold text-[#111111] tracking-tight">
                     {item.title}
                   </h3>
                 </div>
 
                 {/* Animated Plus / X Toggle Icon */}
-                <div className="relative flex h-8 w-8 items-center justify-center rounded-xl bg-slate-900 border border-slate-700/60 text-cyan-400 flex-shrink-0">
+                <div className="relative flex h-8 w-8 items-center justify-center rounded-xl bg-[#F9F9F9] border border-[#E5E5E5] text-[#E50914] flex-shrink-0">
                   <Plus
                     id="plus"
                     strokeWidth={2.5}
@@ -119,8 +119,8 @@ export function Accordion04({ items = defaultItems }: { items?: FAQItem[] }) {
               </div>
             </AccordionTrigger>
 
-            <AccordionContent className="p-6 pt-3 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/50">
-              <div className="pl-2 border-l-2 border-cyan-500/40">
+            <AccordionContent className="p-6 pt-3 text-sm sm:text-base text-[#4A4A4A] leading-relaxed border-t border-[#E5E5E5]/60">
+              <div className="pl-2 border-l-2 border-[#E50914]">
                 {item.content}
               </div>
             </AccordionContent>

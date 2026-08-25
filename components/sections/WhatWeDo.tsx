@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ImageComparison } from '@/components/ui/image-comparison-slider';
-import { FeaturesSectionWithHoverEffects, FeatureItem } from '@/components/ui/feature-section-with-hover-effects';
 import {
   IconTerminal2,
   IconDeviceMobile,
@@ -24,8 +23,17 @@ import {
   IconDeviceFloppy,
 } from '@tabler/icons-react';
 import { ArrowRight, Code2, Server, Sparkles } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-const softwareFeatures: FeatureItem[] = [
+export interface FeatureCardItem {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  link: string;
+  tag: string;
+}
+
+const softwareFeatures: FeatureCardItem[] = [
   {
     title: 'Özel Yazılım Geliştirme',
     description: 'İş süreçlerine ve şirket ihtiyaçlarına özel sıfırdan geliştirilen web ve masaüstü yazılım sistemleri.',
@@ -84,7 +92,7 @@ const softwareFeatures: FeatureItem[] = [
   },
 ];
 
-const serverFeatures: FeatureItem[] = [
+const serverFeatures: FeatureCardItem[] = [
   {
     title: 'NVMe VDS / VPS Sunucular',
     description: '%100 Paylaşımsız CPU/RAM kaynakları, Linux ve Windows NVMe sanal sunucu altyapısı.',
@@ -147,25 +155,24 @@ export function WhatWeDo() {
   const [activeSide, setActiveSide] = useState<'software' | 'server'>('software');
 
   return (
-    <section className="py-24 bg-[#070E1B] border-t border-slate-800/80" id="what-we-do">
+    <section className="py-24 bg-[#F9F9F9] text-[#111111] border-y border-[#E5E5E5]" id="what-we-do">
       <div className="mx-auto max-w-7xl px-6">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-[#0B1528] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-400 mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#E50914]/25 bg-[#E50914]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E50914] mb-4 shadow-xs">
             <Sparkles className="h-3.5 w-3.5" />
             Bölüm 1: Faaliyet Alanlarımız
           </div>
-          <h2 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl text-white tracking-tight mb-4">
+          <h2 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl text-[#111111] tracking-tight mb-4">
             Ne Yapıyoruz?
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Slider'ı sürükleyin veya sekmelere tıklayın: <br />
-            <strong className="text-cyan-300">Sol taraf seçilince Yazılım çözümleri</strong>, <strong className="text-blue-400">Sağ taraf seçilince Sunucu altyapısı</strong> açılır.
+          <p className="text-base sm:text-lg text-[#1A1A1A] leading-relaxed">
+            İşletmenizin ihtiyacına göre <strong className="text-[#E50914]">Özel Yazılım Çözümleri</strong> ve <strong className="text-[#111111]">Tier III Sunucu Altyapısını</strong> tek çatı altında sunuyoruz.
           </p>
         </div>
 
-        {/* 1. VISUAL SLIDER SELECTOR (FULL HORIZONTAL WIDTH) */}
+        {/* 1. VISUAL SLIDER SELECTOR (FULL WIDTH) */}
         <div className="mb-14 w-full">
           <ImageComparison
             beforeImage="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&h=800&fit=crop&q=80"
@@ -179,87 +186,141 @@ export function WhatWeDo() {
           />
         </div>
 
-        {/* 2. DYNAMIC CONTENT OPENING BASED ON SELECTION */}
+        {/* 2. DYNAMIC CONTENT (#F9F9F9 KIRIK BEYAZ ARKA PLAN, #111111 SİYAH YAZI, #E50914 KIRMIZI VURGU) */}
         <AnimatePresence mode="wait">
           
-          {/* =========================================================
-             SOL TARAF AÇILINCA: YAZILIM KISMI (HOVER EFFECT GRID)
-             ========================================================= */}
+          {/* YAZILIM KISMI */}
           {activeSide === 'software' && (
             <motion.div
               key="software-section"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="rounded-3xl border border-cyan-500/40 bg-[#0B1528] p-8 lg:p-12 shadow-2xl shadow-cyan-500/5 w-full"
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.25 }}
+              className="rounded-3xl border border-[#E5E5E5] bg-white p-8 lg:p-12 shadow-xl shadow-slate-200/60 w-full"
             >
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 border-b border-slate-800 mb-6">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 border-b border-[#E5E5E5] mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-500/15 border border-cyan-500/40 text-cyan-400">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E50914] text-white shadow-lg shadow-[#E50914]/25">
                     <Code2 className="h-7 w-7" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-md bg-cyan-500/20 text-cyan-300 px-2.5 py-0.5 text-xs font-bold font-mono uppercase">SOL TARAF SEÇİLDİ</span>
-                      <span className="text-xs text-slate-400">• 8 Yazılım Modülü</span>
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">Özel Yazılım ve Uygulama Çözümleri</h3>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111111]">Özel Yazılım ve Uygulama Çözümleri</h3>
+                    <p className="text-xs sm:text-sm text-[#1A1A1A] mt-1">İşletmenizin süreçlerine %100 özel, ölçeklenebilir ve modern yazılımlar</p>
                   </div>
                 </div>
 
                 <Link
                   href="/yazilim"
-                  className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#00C2FF] to-[#00F5D4] px-6 py-3 text-xs sm:text-sm font-bold text-[#070E1B] shadow-lg shadow-cyan-500/25 hover:scale-105 transition-all"
+                  className="flex items-center gap-2 rounded-xl bg-[#E50914] px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-[#B91C1C] hover:scale-105 transition-all"
                 >
                   <span>Tüm Yazılım Sayfasını Aç</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
 
-              {/* FEATURES WITH HOVER EFFECTS (8-Grid for Software) */}
-              <FeaturesSectionWithHoverEffects features={softwareFeatures} accentColor="cyan" />
+              {/* 8-Grid Hover Effects (#111111 Text, #E50914 Red Highlights) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
+                {softwareFeatures.map((feature, index) => (
+                  <Link
+                    key={feature.title}
+                    href={feature.link}
+                    className={cn(
+                      "flex flex-col lg:border-r py-8 relative group/feature border-[#E5E5E5] transition-colors hover:bg-red-50/40",
+                      (index === 0 || index === 4) && "lg:border-l border-[#E5E5E5]",
+                      index < 4 && "lg:border-b border-[#E5E5E5]"
+                    )}
+                  >
+                    <div className="mb-4 relative z-10 px-8 flex items-center justify-between">
+                      <div className="text-[#E50914] transition-colors duration-200 group-hover/feature:text-[#111111]">
+                        {feature.icon}
+                      </div>
+                      <span className="rounded-md bg-[#F4F4F0] border border-[#E5E5E5] px-2 py-0.5 text-[10px] font-mono font-bold text-[#111111]">
+                        {feature.tag}
+                      </span>
+                    </div>
+
+                    <div className="text-base font-bold mb-2 relative z-10 px-8">
+                      <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-[#E5E5E5] group-hover/feature:bg-[#E50914] transition-all duration-200 origin-center" />
+                      <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-[#111111]">
+                        {feature.title}
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-[#1A1A1A] leading-relaxed max-w-xs relative z-10 px-8">
+                      {feature.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
             </motion.div>
           )}
 
 
-          {/* =========================================================
-             SAĞ TARAF AÇILINCA: SERVER SAYFASI (HOVER EFFECT GRID)
-             ========================================================= */}
+          {/* SERVER KISMI */}
           {activeSide === 'server' && (
             <motion.div
               key="server-section"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="rounded-3xl border border-blue-500/40 bg-[#0B1528] p-8 lg:p-12 shadow-2xl shadow-blue-500/5 w-full"
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.25 }}
+              className="rounded-3xl border border-[#E5E5E5] bg-white p-8 lg:p-12 shadow-xl shadow-slate-200/60 w-full"
             >
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 border-b border-slate-800 mb-6">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 border-b border-[#E5E5E5] mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/15 border border-blue-500/40 text-blue-400">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#111111] text-white shadow-lg">
                     <Server className="h-7 w-7" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-md bg-blue-500/20 text-blue-300 px-2.5 py-0.5 text-xs font-bold font-mono uppercase">SAĞ TARAF SEÇİLDİ</span>
-                      <span className="text-xs text-slate-400">• 8 Sunucu Modülü</span>
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">Tier III Sunucu ve Barındırma Altyapısı</h3>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111111]">Tier III Sunucu ve Barındırma Altyapısı</h3>
+                    <p className="text-xs sm:text-sm text-[#1A1A1A] mt-1">İstanbul Tier III Veri Merkezi, %99.98 Uptime ve 1 Gbps port gücü</p>
                   </div>
                 </div>
 
                 <Link
                   href="/web-hosting"
-                  className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-blue-500/25 hover:scale-105 transition-all"
+                  className="flex items-center gap-2 rounded-xl bg-[#111111] px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-[#1A1A1A] hover:scale-105 transition-all"
                 >
                   <span>Tüm Sunucu Sayfasını Aç</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
 
-              {/* FEATURES WITH HOVER EFFECTS (8-Grid for Server) */}
-              <FeaturesSectionWithHoverEffects features={serverFeatures} accentColor="blue" />
+              {/* 8-Grid Hover Effects (#111111 Text, Red/Black Highlights) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
+                {serverFeatures.map((feature, index) => (
+                  <Link
+                    key={feature.title}
+                    href={feature.link}
+                    className={cn(
+                      "flex flex-col lg:border-r py-8 relative group/feature border-[#E5E5E5] transition-colors hover:bg-slate-50",
+                      (index === 0 || index === 4) && "lg:border-l border-[#E5E5E5]",
+                      index < 4 && "lg:border-b border-[#E5E5E5]"
+                    )}
+                  >
+                    <div className="mb-4 relative z-10 px-8 flex items-center justify-between">
+                      <div className="text-[#111111] transition-colors duration-200 group-hover/feature:text-[#E50914]">
+                        {feature.icon}
+                      </div>
+                      <span className="rounded-md bg-[#F4F4F0] border border-[#E5E5E5] px-2 py-0.5 text-[10px] font-mono font-bold text-[#111111]">
+                        {feature.tag}
+                      </span>
+                    </div>
+
+                    <div className="text-base font-bold mb-2 relative z-10 px-8">
+                      <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-[#E5E5E5] group-hover/feature:bg-[#111111] transition-all duration-200 origin-center" />
+                      <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-[#111111]">
+                        {feature.title}
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-[#1A1A1A] leading-relaxed max-w-xs relative z-10 px-8">
+                      {feature.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
             </motion.div>
           )}
 
