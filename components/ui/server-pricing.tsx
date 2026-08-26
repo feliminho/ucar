@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -6,10 +7,11 @@ import { TimelineContent } from "@/components/ui/timeline-animation";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { cn } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
-import { Check, CheckCheck, HardDrive, Cpu, ShieldCheck, ArrowRight, Sparkles, Zap } from "lucide-react";
+import { CheckCheck, Cpu, HardDrive, ShieldCheck, Server, ArrowRight, Zap, Check } from "lucide-react";
 import { motion } from "framer-motion";
 
-export interface PricingPlan {
+export interface ServerPricingPlan {
+  id: string;
   name: string;
   category: string;
   description: string;
@@ -19,118 +21,113 @@ export interface PricingPlan {
   buttonVariant: "default" | "outline";
   popular?: boolean;
   badge?: string;
-  disk: string;
-  ram: string;
-  sites: string;
+  specs: {
+    cpu: string;
+    ram: string;
+    disk: string;
+    port: string;
+  };
   features: string[];
 }
 
-export const hostingPlans: PricingPlan[] = [
+export const serverPricingPlans: ServerPricingPlan[] = [
   {
-    name: "EKO SSD 1",
-    category: "Ekonomik",
-    description: "Kişisel bloglar ve başlangıç seviyesindeki web siteleri için ideal.",
-    monthlyPrice: 1.25,
-    yearlyPrice: 11.25,
+    id: "vds-baslangic",
+    name: "VDS Başlangıç",
+    category: "VDS Sunucu",
+    description: "Web projeleri, API servisleri ve başlangıç seviyesi kurumsal uygulamalar için.",
+    monthlyPrice: 199,
+    yearlyPrice: 1990,
     buttonText: "Hemen Sipariş Ver",
     buttonVariant: "outline",
-    disk: "1GB M2 SSD Disk",
-    ram: "2 GB RAM",
-    sites: "1 Adet Site Barındırma",
+    specs: {
+      cpu: "2 vCPU Intel Xeon",
+      ram: "4 GB DDR4 RAM",
+      disk: "50 GB NVMe SSD",
+      port: "1 Gbps Port Hızı",
+    },
     features: [
-      "1GB M2 SSD Disk",
-      "2 GB RAM",
+      "2 vCPU Intel Xeon İşlemci",
+      "4 GB Yüksek Hızlı RAM",
+      "50 GB NVMe SSD Disk",
       "Sınırsız Aylık Trafik",
-      "1 Adet Site Barındırma",
-      "100 E-Mail Adresi",
-      "Sınırsız FTP Hesabı",
-      "2 Adet MySQL",
-      "Anında Kurulum",
-      "%100 CPU İzni",
-      "PHP 5.6 - 8.3 Desteği",
-      "Ortak PHP Ayarları",
-      "Git Yönetimi",
-      "WP Araç Yönetimi (WordPress Toolkit)",
-      "Laravel Toolkit",
-      "Node.js Desteği",
-      "SSL Sertifikası Ücretsiz!",
+      "1 Adet Sabit Statik IP",
+      "Tam Root / SSH Erişimi",
+      "Linux / Windows OS Seçeneği",
+      "1 Gbps Port & 100 Mbps Garanti",
+      "Ücretsiz Yeniden Kurulum",
+      "Donanımsal DDoS Koruması",
     ],
   },
   {
-    name: "L BAYİİ",
-    category: "Reseller",
-    description: "Kendi müşterilerine hosting satmak isteyen ajans ve geliştiriciler için.",
-    monthlyPrice: 12.00,
-    yearlyPrice: 120.00,
+    id: "reseller-bayi",
+    name: "Reseller (Bayi)",
+    category: "Bayi Sunucu",
+    description: "Kendi müşterilerine hosting satmak ve çoklu site yönetmek isteyen ajans ve geliştiriciler için.",
+    monthlyPrice: 349,
+    yearlyPrice: 3490,
     buttonText: "Hemen Sipariş Ver",
     buttonVariant: "default",
     popular: true,
-    badge: "BAYİ RESELLER",
-    disk: "15GB M2 SSD Disk",
-    ram: "6 GB RAM",
-    sites: "15 Adet Site Barındırma",
+    badge: "EN POPÜLER",
+    specs: {
+      cpu: "4 Core CloudLinux",
+      ram: "8 GB DDR4 RAM",
+      disk: "100 GB NVMe SSD",
+      port: "1 Gbps Port Hızı",
+    },
     features: [
-      "15GB M2 SSD Disk",
-      "6 GB RAM",
-      "Sınırsız Aylık Trafik",
-      "15 Adet Site Barındırma",
-      "Sınırsız SubDomain",
-      "Sınırsız E-Mail",
-      "Sınırsız MySQL",
-      "Sınırsız FTP Hesabı",
-      "Anında Kurulum",
-      "%100 CPU İzni",
-      "PHP 5.6 - 8.3 Desteği",
-      "Ortak PHP Ayarları",
-      "Git Yönetimi",
-      "WP Araç Yönetimi",
-      "Laravel Toolkit",
-      "Node.js Desteği",
-      "SSL Sertifikası Ücretsiz!",
+      "CloudLinux İzolasyon & Güvenlik",
+      "8 GB Yüksek Hızlı RAM",
+      "100 GB Ultra NVMe SSD Disk",
+      "Sınırsız Web Sitesi Barındırma",
+      "cPanel / WHM Bayi Yönetim Paneli",
+      "Sınırsız E-Posta & Veritabanı",
+      "Ücretsiz SSL & Otomatik Kurulum",
+      "1 Gbps Port & Donanımsal DDoS Koruma",
+      "Haftalık Otomatik Yedekleme",
+      "Özel Nameserver (ns1/ns2) Desteği",
     ],
   },
   {
-    name: "PRO SSD 2",
-    category: "Profesyonel",
-    description: "Yüksek ziyaretçi alan kurumsal siteler ve e-ticaret için en popüler paket.",
-    monthlyPrice: 4.80,
-    yearlyPrice: 48.00,
+    id: "dedicated-kurumsal",
+    name: "Fiziksel Dedicated",
+    category: "Fiziksel Sunucu",
+    description: "Maksimum performans, izolasyon ve tam donanım kontrolü gerektiren büyük kurumsal yapılar için.",
+    monthlyPrice: 1499,
+    yearlyPrice: 14990,
     buttonText: "Hemen Sipariş Ver",
     buttonVariant: "outline",
-    badge: "PROFESYONEL",
-    disk: "5GB M2 SSD Disk",
-    ram: "2 GB RAM",
-    sites: "5 Adet Site Barındırma",
+    badge: "MAKSİMUM GÜÇ",
+    specs: {
+      cpu: "8 Core Intel Xeon E-2276G",
+      ram: "32 GB ECC RAM",
+      disk: "2x 500GB NVMe RAID",
+      port: "1 Gbps Port Hızı",
+    },
     features: [
-      "5GB M2 SSD Disk",
-      "2 GB RAM",
+      "Intel Xeon E-2276G (8 Core)",
+      "32 GB ECC DDR4 RAM",
+      "2x 500 GB NVMe SSD (Hardware RAID)",
       "Sınırsız Aylık Trafik",
-      "5 Adet Site Barındırma",
-      "10 Adet SubDomain",
-      "100 E-Mail Adresi",
-      "20 Adet MySQL",
-      "Sınırsız FTP Hesabı",
-      "Anında Kurulum",
-      "%100 CPU İzni",
-      "PHP 5.6 - 8.3 Desteği",
-      "Ortak PHP Ayarları",
-      "Git Yönetimi",
-      "WP Araç Yönetimi",
-      "Laravel Toolkit",
-      "Node.js Desteği",
-      "SSL Sertifikası Ücretsiz!",
+      "5 Adet Sabit Statik IP",
+      "KVM / IPMI Uzaktan Yönetim",
+      "%100 Donanım İzolasyonu",
+      "1 Gbps Dedicated Port",
+      "7/24 Donanım Değişim Garantisi",
+      "Özel Donanımsal Firewall",
     ],
   },
 ];
 
-const PricingSwitch = ({
+const ServerPricingSwitch = ({
   onSwitch,
   className,
 }: {
   onSwitch: (value: string) => void;
   className?: string;
 }) => {
-  const [selected, setSelected] = useState("1"); // Default yearly
+  const [selected, setSelected] = useState("0"); // Default monthly
 
   const handleSwitch = (value: string) => {
     setSelected(value);
@@ -138,20 +135,20 @@ const PricingSwitch = ({
   };
 
   return (
-    <div className={cn("flex justify-center", className)}>
-      <div className="relative z-10 mx-auto flex w-fit rounded-2xl bg-[#F4F4F0] border border-[#E5E5E5] p-1.5 shadow-xs">
+    <div className={cn("flex justify-center md:justify-start", className)}>
+      <div className="relative z-10 flex w-fit rounded-2xl bg-slate-950/80 border border-slate-700/80 p-1.5 shadow-xl backdrop-blur-md">
         <button
           type="button"
           onClick={() => handleSwitch("0")}
           className={cn(
             "relative z-10 w-fit cursor-pointer h-11 rounded-xl sm:px-6 px-4 font-bold transition-colors text-xs sm:text-sm",
-            selected === "0" ? "text-white" : "text-[#111111] hover:text-[#E50914]"
+            selected === "0" ? "text-white" : "text-slate-400 hover:text-white"
           )}
         >
           {selected === "0" && (
             <motion.span
-              layoutId="switch-bg"
-              className="absolute inset-0 rounded-xl bg-[#111111] shadow-md"
+              layoutId="server-switch-bg"
+              className="absolute inset-0 rounded-xl bg-[#E50914] shadow-md shadow-[#E50914]/30"
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
             />
           )}
@@ -163,13 +160,13 @@ const PricingSwitch = ({
           onClick={() => handleSwitch("1")}
           className={cn(
             "relative z-10 w-fit cursor-pointer h-11 flex-shrink-0 rounded-xl sm:px-6 px-4 font-bold transition-colors text-xs sm:text-sm",
-            selected === "1" ? "text-white" : "text-[#111111] hover:text-[#E50914]"
+            selected === "1" ? "text-white" : "text-slate-400 hover:text-white"
           )}
         >
           {selected === "1" && (
             <motion.span
-              layoutId="switch-bg"
-              className="absolute inset-0 rounded-xl bg-[#E50914] shadow-md shadow-[#E50914]/25"
+              layoutId="server-switch-bg"
+              className="absolute inset-0 rounded-xl bg-[#E50914] shadow-md shadow-[#E50914]/30"
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
             />
           )}
@@ -177,9 +174,9 @@ const PricingSwitch = ({
             Yıllık Ödeme
             <span className={cn(
               "rounded-full px-2 py-0.5 text-[10px] font-mono font-bold transition-colors",
-              selected === "1" ? "bg-white text-[#E50914]" : "bg-[#E50914]/15 text-[#E50914]"
+              selected === "1" ? "bg-white text-[#E50914]" : "bg-[#E50914]/20 text-[#E50914]"
             )}>
-              %20 İndirim
+              2 Ay Ücretsiz
             </span>
           </span>
         </button>
@@ -188,8 +185,8 @@ const PricingSwitch = ({
   );
 };
 
-export default function PricingSection5() {
-  const [isYearly, setIsYearly] = useState(true);
+export default function ServerPricingSection() {
+  const [isYearly, setIsYearly] = useState(false);
   const pricingRef = useRef<HTMLDivElement>(null);
 
   const revealVariants = {
@@ -214,9 +211,9 @@ export default function PricingSection5() {
 
   return (
     <div
-      className="px-4 py-16 max-w-7xl mx-auto relative bg-[#F9F9F9] text-[#111111]"
+      className="px-4 py-12 max-w-7xl mx-auto relative text-[#111111]"
       ref={pricingRef}
-      id="hosting-pricing"
+      id="sunucu-paketleri"
     >
       <article className="text-center md:text-left mb-10 space-y-4 max-w-3xl">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight">
@@ -233,7 +230,7 @@ export default function PricingSection5() {
               delay: 0,
             }}
           >
-            İşletmeniz İçin En Uygun Hosting Planını Seçin
+            İhtiyacınıza Özel Sunucu Yapılandırmaları
           </VerticalCutReveal>
         </h2>
 
@@ -242,9 +239,9 @@ export default function PricingSection5() {
           animationNum={0}
           timelineRef={pricingRef}
           customVariants={revealVariants}
-          className="text-sm sm:text-base text-[#4A4A4A] leading-relaxed max-w-2xl"
+          className="text-sm sm:text-base text-[#555555] leading-relaxed max-w-2xl"
         >
-          Yüksek performanslı NVMe SSD diskler, LiteSpeed Web Server ve 7/24 kesintisiz destek ile web sitelerinizi güvenle barındırın.
+          Tam root erişimi, %100 NVMe SSD depolama, 1 Gbps yedekli hat ve Tier III veri merkezi güvencesiyle yüksek performanslı sunucular.
         </TimelineContent>
 
         <TimelineContent
@@ -254,15 +251,15 @@ export default function PricingSection5() {
           customVariants={revealVariants}
           className="pt-2"
         >
-          <PricingSwitch onSwitch={togglePricingPeriod} className="w-fit md:mx-0" />
+          <ServerPricingSwitch onSwitch={togglePricingPeriod} className="w-fit md:mx-0" />
         </TimelineContent>
       </article>
 
       {/* Pricing Cards Grid */}
       <div className="grid md:grid-cols-3 gap-8 py-6">
-        {hostingPlans.map((plan, index) => (
+        {serverPricingPlans.map((plan, index) => (
           <TimelineContent
-            key={plan.name}
+            key={plan.id}
             as="div"
             animationNum={2 + index}
             timelineRef={pricingRef}
@@ -299,12 +296,12 @@ export default function PricingSection5() {
                 {/* Price Display */}
                 <div className="flex items-baseline gap-1 pt-2 border-t border-[#E5E5E5]">
                   <span className="text-3xl sm:text-4xl font-black text-[#111111] font-mono">
-                    $
+                    ₺
                     <NumberFlow
                       value={isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                       format={{
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
                       }}
                       className="font-mono text-3xl sm:text-4xl font-black"
                     />
@@ -330,17 +327,37 @@ export default function PricingSection5() {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
 
-                  <div className="space-y-3 pt-4 border-t border-[#E5E5E5]">
+                  {/* Hardware Quick Specs Grid */}
+                  <div className="grid grid-cols-2 gap-2 p-3 bg-slate-50 border border-slate-100 rounded-2xl mb-5 text-[11px] font-semibold text-slate-700 font-mono">
+                    <div className="flex items-center gap-1.5">
+                      <Cpu className="h-3.5 w-3.5 text-[#E50914] flex-shrink-0" />
+                      <span className="truncate">{plan.specs.cpu}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Zap className="h-3.5 w-3.5 text-[#E50914] flex-shrink-0" />
+                      <span className="truncate">{plan.specs.ram}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <HardDrive className="h-3.5 w-3.5 text-[#E50914] flex-shrink-0" />
+                      <span className="truncate">{plan.specs.disk}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Server className="h-3.5 w-3.5 text-[#E50914] flex-shrink-0" />
+                      <span className="truncate">{plan.specs.port}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 pt-2 border-t border-[#E5E5E5]">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-3">
-                      Paket Özellikleri
+                      Dahil Olan Özellikler
                     </h4>
                     <ul className="space-y-2.5 text-xs text-[#4A4A4A]">
-                      {plan.features.slice(0, 8).map((feature, featureIndex) => (
+                      {plan.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center gap-2.5">
                           <span className="h-5 w-5 bg-red-50 border border-red-200 rounded-full flex items-center justify-center flex-shrink-0">
                             <CheckCheck className="h-3 w-3 text-[#E50914]" />
                           </span>
-                          <span className={feature.includes("SSL") || feature.includes("Disk") || feature.includes("RAM") ? "font-bold text-[#111111]" : ""}>
+                          <span className={feature.includes("NVMe") || feature.includes("RAM") || feature.includes("Root") || feature.includes("DDoS") ? "font-bold text-[#111111]" : ""}>
                             {feature}
                           </span>
                         </li>
@@ -349,58 +366,22 @@ export default function PricingSection5() {
                   </div>
                 </div>
 
-                {/* Additional View All Link */}
-                <div className="pt-6 mt-6 border-t border-[#E5E5E5] text-center">
-                  <Link
-                    href="/web-hosting"
-                    className="text-xs font-bold text-[#E50914] hover:underline inline-flex items-center gap-1"
+                {/* Direct WhatsApp consultation */}
+                <div className="pt-5 mt-5 border-t border-[#E5E5E5] flex items-center justify-between text-xs">
+                  <span className="text-slate-500 font-medium">Özel Yapılandırma?</span>
+                  <a
+                    href={`https://wa.me/905385926467?text=${encodeURIComponent(`Merhaba, ${plan.name} hakkında bilgi almak istiyorum.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#E50914] hover:underline inline-flex items-center gap-1"
                   >
-                    Tüm özellikleri görüntüle →
-                  </Link>
+                    WhatsApp Destek →
+                  </a>
                 </div>
               </CardContent>
             </Card>
           </TimelineContent>
         ))}
-      </div>
-
-      {/* 4. BOTTOM CLOUDLINUX / LITESPEED / IMUNIFY360 BADGES PNG */}
-      <div className="mt-14 pt-8 border-t border-[#E5E5E5] flex flex-col lg:flex-row items-center justify-between gap-6 bg-white p-8 rounded-3xl shadow-sm">
-        <div className="text-center lg:text-left">
-          <h4 className="text-lg font-bold text-[#111111] mb-1">
-            Güçlü ve Güvenli Sunucu Altyapısı
-          </h4>
-          <p className="text-xs text-[#555555] leading-relaxed max-w-xl">
-            Tüm hosting sunucularımız <strong>CloudLinux</strong> izole hesap güvenliği, <strong>LiteSpeed</strong> ultra önbellekleme motoru ve <strong>Imunify360</strong> yapay zekâlı proaktif siber güvenlik duvarı ile korunmaktadır.
-          </p>
-        </div>
-
-        {/* Logos Displayed Side by Side Horizontally */}
-        <div className="flex flex-wrap items-center justify-center gap-4 flex-shrink-0">
-          <div className="flex items-center gap-3 p-3 px-5 rounded-2xl bg-[#F9F9F9] border border-[#E5E5E5] hover:border-[#E50914] transition-all shadow-xs">
-            <ShieldCheck className="h-6 w-6 text-[#E50914]" />
-            <div className="text-left">
-              <span className="block text-xs font-black text-[#111111] tracking-tight">CloudLinux</span>
-              <span className="block text-[10px] text-slate-500 font-medium">OS İzolasyonu</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 p-3 px-5 rounded-2xl bg-[#F9F9F9] border border-[#E5E5E5] hover:border-[#E50914] transition-all shadow-xs">
-            <Zap className="h-6 w-6 text-amber-500" />
-            <div className="text-left">
-              <span className="block text-xs font-black text-[#111111] tracking-tight">LiteSpeed</span>
-              <span className="block text-[10px] text-slate-500 font-medium">Web Server</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 p-3 px-5 rounded-2xl bg-[#F9F9F9] border border-[#E5E5E5] hover:border-[#E50914] transition-all shadow-xs">
-            <HardDrive className="h-6 w-6 text-indigo-600" />
-            <div className="text-left">
-              <span className="block text-xs font-black text-[#111111] tracking-tight">Imunify360</span>
-              <span className="block text-[10px] text-slate-500 font-medium">AI Güvenlik Duvarı</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

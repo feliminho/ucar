@@ -17,79 +17,64 @@ export interface FAQItem {
   tag?: string;
 }
 
-const defaultItems: FAQItem[] = [
+export const hostingFAQItems: FAQItem[] = [
   {
     id: '01',
-    title: 'Hangi yazılım dillerini ve mimarileri kullanıyorsunuz?',
+    title: 'Hosting siparişim ne zaman ve nasıl aktif olur?',
     content:
-      "Tüm projelerimizi modern ve ölçeklenebilir teknolojilerle sıfırdan geliştiriyoruz. Frontend'de Next.js 15, React ve TypeScript; backend'de Go, Node.js, Python, PostgreSQL ve Redis; mobil tarafta ise native Swift ve Kotlin/Flutter mimarilerini tercih ediyoruz.",
-    tag: 'Yazılım',
+      'Kredi kartı veya havale ile onaylanan tüm Web Hosting ve Reseller siparişleri anında otomatik olarak provizyonlanır. cPanel/WHM giriş bilgileriniz ve DNS adresleriniz saniyeler içinde e-posta adresinize iletilir.',
+    tag: 'Aktivasyon',
   },
   {
     id: '02',
-    title: 'Sunucularınız nerede barındırılıyor ve uptime oranınız nedir?',
+    title: 'Farklı bir firmadaki web sitelerimi ücretsiz taşıyor musunuz?',
     content:
-      'Sunucularımız İstanbul Tier III sertifikalı veri merkezinde, 1 Gbps yedekli fiber hatlar ve %99.98 SLA kesintisiz erişim garantisiyle 7/24 donanımsal DDoS koruması altında barındırılmaktadır.',
-    tag: 'Sunucu & Altyapı',
+      'Evet! Farklı bir hosting firmasındaki cPanel, Plesk veya DirectAdmin hesaplarınızı uzman teknik ekibimiz sıfır kesinti ve veri kaybı olmadan ücretsiz olarak yeni sunucularımıza taşımaktadır.',
+    tag: 'Ücretsiz Taşıma',
   },
   {
     id: '03',
-    title: 'Geliştirilen yazılımlarda kaynak kodlar teslim ediliyor mu?',
+    title: 'Reseller (Bayi) hosting ile kendi müşterilerime hosting satabilir miyim?',
     content:
-      "Evet. Özel yazılım projelerimizde lisanslama veya vendor lock-in olmadan, tüm kaynak kodlar, CI/CD dağıtım pipeline'ları ve teknik mimari dokümantasyonu şirketinizin mülkiyetine eksiksiz teslim edilir.",
-    tag: 'Telif & Mülkiyet',
+      'Evet. Size tahsis edilen WHM (Web Host Manager) kontrol paneli üzerinden istediğiniz disk, trafik ve e-posta kotalarında bağımsız cPanel hesapları oluşturabilir, kendi markanızla müşterilerinize hosting hizmeti satabilirsiniz.',
+    tag: 'Bayi Yönetimi',
   },
   {
     id: '04',
-    title: 'Pazaryeri ve ERP entegrasyonları ne kadar sürer?',
+    title: 'Ücretsiz SSL sertifikası tüm alan adları için geçerli mi?',
     content:
-      'Trendyol, Amazon, Hepsiburada, Logo, Mikro ve GİB E-Fatura API entegrasyonları genellikle 3 ila 7 iş günü içinde test ortamından canlıya çift yönlü senkronizasyonla başarıyla aktarılır.',
-    tag: 'Entegrasyon',
+      'Evet. Hesabınıza eklediğiniz ana domain, alt domain (subdomain) ve takma adlar (alias) için Let’s Encrypt SSL sertifikası otomatik olarak tanımlanır ve 90 günde bir sistem tarafından yenilenir.',
+    tag: 'SSL & Güvenlik',
   },
   {
     id: '05',
-    title: 'Otomatik yedekleme ve DDoS filtreleme standart mı?',
+    title: 'Web sitelerim için günlük veya haftalık yedekleme yapılıyor mu?',
     content:
-      'Evet. Tüm VDS ve Web Hosting paketlerimizde 1 Tbps+ donanımsal DDoS filtreleme ve günlük/haftalık otomatik felaket kurtarma yedekleme hizmeti standart olarak sunulmaktadır.',
-    tag: 'Güvenlik & SLA',
-  },
-  {
-    id: '06',
-    title: 'Yapay zekâ asistanlarını şirket verilerimizle nasıl eğitiyorsunuz?',
-    content:
-      'OpenAI, Claude ve Gemini modellerini RAG (Retrieval-Augmented Generation) mimarisiyle izole ederek şirketinizin PDF, Excel, ERP ve CRM veri tabanına entegre ediyoruz; verileriniz asla dışarı sızdırılmaz.',
-    tag: 'Yapay Zekâ',
-  },
-  {
-    id: '07',
-    title: 'Satış sonrası destek ve SLA şartlarınız nasıldır?',
-    content:
-      '7/24 acil telefon hattı (0850 000 00 00) ve anlık destek bilet sistemiyle kritik arızalara 15 dakika içinde doğrudan sistem mühendisi seviyesinde müdahale garantisi veriyoruz.',
-    tag: '7/24 Destek',
-  },
-  {
-    id: '08',
-    title: 'Nasıl teklif alabilir veya demo randevusu oluşturabilirim?',
-    content:
-      "Sitemizdeki 'Teklif Al' butonunu kullanabilir, info@ucaryazilim.com adresine yazabilir veya doğrudan çağrı merkezimizle iletişime geçerek aynı gün içinde detaylı teknik teklif alabilirsiniz.",
-    tag: 'Teklif & İletişim',
+      'Tüm sunucularımızda haftalık periyotlarla imaj yedeklemesi ve cPanel üzerinden dilediğiniz an tek tıkla tam hesap yedeği alma imkânı standart olarak sunulmaktadır.',
+    tag: 'Yedekleme',
   },
 ];
 
-export function Accordion04({ items = defaultItems }: { items?: FAQItem[] }) {
+export function Accordion02({
+  items = hostingFAQItems,
+  className,
+}: {
+  items?: FAQItem[];
+  className?: string;
+}) {
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className={cn('w-full max-w-4xl mx-auto', className)}>
       <Accordion type="single" defaultValue="01" collapsible className="w-full space-y-3">
         {items.map((item) => (
           <AccordionItem
             value={item.id}
             key={item.id}
-            className="rounded-2xl border border-[#E5E5E5] bg-white overflow-hidden transition-all duration-300 shadow-xs data-[state=open]:border-[#E50914]/40 data-[state=open]:shadow-md data-[state=open]:shadow-red-500/5"
+            className="group border border-[#E5E5E5] bg-white rounded-2xl overflow-hidden transition-all data-[state=open]:border-[#E50914] data-[state=open]:shadow-md"
           >
-            <AccordionTrigger className="text-left p-2 data-[state=open]:rounded-b-none data-[state=open]:bg-red-50/50 duration-300 hover:no-underline cursor-pointer [&>svg]:hidden">
-              <div className="flex flex-1 px-5 py-3 justify-between items-center gap-4">
-                <div className="flex items-center gap-3.5">
-                  <span className="font-mono text-xs font-bold text-[#E50914] rounded-md bg-[#F4F4F0] border border-[#E5E5E5] px-2 py-1">
+            <AccordionTrigger className="text-left p-5 hover:no-underline cursor-pointer [&>svg]:hidden">
+              <div className="flex flex-1 items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-xs font-bold text-[#E50914] rounded-md bg-red-50 border border-red-100 px-2.5 py-1">
                     {item.id}
                   </span>
                   <h3 className="text-base sm:text-lg font-bold text-[#111111] tracking-tight">
@@ -131,4 +116,4 @@ export function Accordion04({ items = defaultItems }: { items?: FAQItem[] }) {
   );
 }
 
-export { Accordion04 as Accordion02 };
+export const Accordion04 = Accordion02;

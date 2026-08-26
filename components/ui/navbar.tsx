@@ -30,22 +30,28 @@ const Menu = ({ list }: MenuProps) => {
             return (
               <li
                 key={item.id}
-                className="relative py-2"
+                className="relative py-2 flex-shrink-0"
                 onMouseEnter={() => setHovered(item.id)}
                 onMouseLeave={() => setHovered(null)}
               >
                 <Link
                   className={`
-                    relative flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-all
+                    relative flex items-center justify-center rounded-lg px-3.5 py-2 text-sm font-semibold transition-all whitespace-nowrap
                     ${isHovered ? 'text-[#E50914]' : item.id === 1 ? 'text-[#111111] font-bold' : 'text-[#1A1A1A]'}
                     hover:text-[#E50914]
                   `}
                   href={item.url}
+                  onClick={() => {
+                    setHovered(null);
+                    if (typeof window !== 'undefined') {
+                      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                    }
+                  }}
                 >
-                  {item.title}
+                  <span className="whitespace-nowrap">{item.title}</span>
                   {item.dropdown && (
                     <svg
-                      className={`ml-1.5 h-3.5 w-3.5 transition-transform duration-200 ${
+                      className={`ml-1.5 h-3.5 w-3.5 flex-shrink-0 transition-transform duration-200 ${
                         isHovered ? 'rotate-180 text-[#E50914]' : 'text-slate-500'
                       }`}
                       fill="none"
@@ -80,6 +86,12 @@ const Menu = ({ list }: MenuProps) => {
                           <Link
                             key={`link-${nav.id}`}
                             href={nav.url}
+                            onClick={() => {
+                              setHovered(null);
+                              if (typeof window !== 'undefined') {
+                                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                              }
+                            }}
                             className="flex items-center rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#1A1A1A] transition-colors hover:bg-red-50 hover:text-[#E50914]"
                           >
                             {nav.title}

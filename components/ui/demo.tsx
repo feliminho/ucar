@@ -34,106 +34,124 @@ export const siteMenus: IMenu[] = [
   },
   {
     id: 3,
+    title: 'Sunucu Barındırma',
+    url: '/sunucu-barindirma',
+    dropdown: true,
+    items: [
+      {
+        id: 31,
+        title: 'VDS Sunucular',
+        url: '/sunucu-barindirma/vds-sunucu',
+      },
+      {
+        id: 32,
+        title: 'Fiziksel Sunucular',
+        url: '/sunucu-barindirma/fiziksel-sunucu',
+      },
+    ],
+  },
+  {
+    id: 4,
     title: 'Web Hosting',
     url: '/web-hosting',
     dropdown: true,
     items: [
       {
-        id: 31,
+        id: 41,
         title: 'Ekonomik SSD Hosting',
         url: '/web-hosting?kategori=ekonomik',
       },
       {
-        id: 32,
+        id: 42,
         title: 'Profesyonel SSD Hosting',
         url: '/web-hosting?kategori=profesyonel',
       },
       {
-        id: 33,
+        id: 43,
         title: 'Bayi (Reseller) Hosting',
         url: '/web-hosting?kategori=reseller',
       },
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: 'Yazılım',
     url: '/yazilim',
     dropdown: true,
     items: [
       {
-        id: 41,
-        title: 'Özel Yazılım Çözümleri',
-        url: '/yazilim/ozel-yazilim',
-      },
-      {
-        id: 42,
-        title: 'iOS & Android Mobil Uygulama',
-        url: '/yazilim/mobil-uygulama',
-      },
-      {
-        id: 43,
-        title: 'ERP & CRM Kurumsal Sistemler',
-        url: '/yazilim/erp-crm',
-      },
-      {
-        id: 44,
-        title: 'E-Ticaret & Ödeme Altyapıları',
-        url: '/yazilim/e-ticaret',
-      },
-      {
-        id: 45,
-        title: 'Pazaryeri & GİB API Entegrasyonları',
-        url: '/yazilim/api-entegrasyon',
-      },
-      {
-        id: 46,
-        title: 'Yapay Zekâ (LLM) & Veri Çözümleri',
-        url: '/yazilim/yapay-zeka',
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: 'E-posta',
-    url: '/e-posta',
-    dropdown: true,
-    items: [
-      {
         id: 51,
-        title: 'Kurumsal Bulut E-Posta (Cloud Mail)',
-        url: '/e-posta/kurumsal-mail',
+        title: 'Özel Yazılım Çözümleri',
+        url: '/yazilim?hizmet=ozel-yazilim',
       },
       {
         id: 52,
-        title: 'Anti-Spam & Gelişmiş Filtreleme',
-        url: '/e-posta/guvenlik-filtreleme',
+        title: 'iOS & Android Mobil Uygulama',
+        url: '/yazilim?hizmet=mobil-uygulama',
+      },
+      {
+        id: 53,
+        title: 'ERP & CRM Kurumsal Sistemler',
+        url: '/yazilim?hizmet=erp-crm',
+      },
+      {
+        id: 54,
+        title: 'E-Ticaret & Ödeme Altyapıları',
+        url: '/yazilim?hizmet=e-ticaret',
+      },
+      {
+        id: 55,
+        title: 'Pazaryeri & GİB API Entegrasyonları',
+        url: '/yazilim?hizmet=api-entegrasyon',
+      },
+      {
+        id: 56,
+        title: 'Yapay Zekâ (LLM) & Veri Çözümleri',
+        url: '/yazilim?hizmet=yapay-zeka',
       },
     ],
   },
   {
     id: 6,
+    title: 'E-posta',
+    url: '/e-posta',
+    dropdown: true,
+    items: [
+      {
+        id: 61,
+        title: 'Kurumsal Bulut E-Posta (Cloud Mail)',
+        url: '/e-posta?paket=kurumsal-mail',
+      },
+      {
+        id: 62,
+        title: 'Anti-Spam & Gelişmiş Filtreleme',
+        url: '/e-posta?paket=guvenlik-filtreleme',
+      },
+    ],
+  },
+  {
+    id: 7,
     title: 'Kurumsal',
     url: '/kurumsal',
     dropdown: true,
     items: [
       {
-        id: 61,
+        id: 71,
         title: 'Hakkımızda & Vizyon',
-        url: '/kurumsal/hakkimizda',
+        url: '/kurumsal?sayfa=hakkimizda',
       },
       {
-        id: 62,
+        id: 72,
         title: 'Tier III Veri Merkezi Altyapısı',
-        url: '/kurumsal/veri-merkezi',
+        url: '/kurumsal?sayfa=veri-merkezi',
       },
       {
-        id: 63,
-        title: 'Referanslar & Tamamlanan Projeler',
-        url: '/kurumsal/referanslar',
+        id: 73,
+        title: 'Referanslar & Projeler',
+        url: '/kurumsal?sayfa=referanslar',
       },
       {
-        id: 64,
+        id: 74,
         title: 'İletişim & Teklif Formu',
         url: '/kurumsal/iletisim',
       },

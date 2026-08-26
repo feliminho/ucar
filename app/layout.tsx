@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Sora, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/ui/header';
+import { Footer } from '@/components/ui/footer-section';
+import { WhatsAppFloating } from '@/components/ui/whatsapp-floating';
 
 const sora = Sora({
   subsets: ['latin'],
@@ -37,9 +39,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#F9F9F9] text-[#111111] antialiased selection:bg-[#E50914] selection:text-white">
+      <body className="min-h-screen bg-[#F9F9F9] text-[#111111] antialiased selection:bg-[#E50914] selection:text-white relative flex flex-col justify-between">
         <Header />
-        {children}
+        <div className="flex-grow">{children}</div>
+        <Footer />
+        <WhatsAppFloating />
       </body>
     </html>
   );

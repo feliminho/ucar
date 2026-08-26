@@ -2,18 +2,28 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { NavBarDemo } from './demo';
-import { Menu as MenuIcon, X, ArrowRight, Headphones } from 'lucide-react';
+import { Menu as MenuIcon, X, ArrowRight, Headphones, Phone } from 'lucide-react';
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#E5E5E5] bg-[#F9F9F9]/95 backdrop-blur-xl transition-all shadow-xs">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         
         {/* LOGO: UÇAR YAZILIM */}
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" onClick={handleHomeClick} className="flex items-center gap-3 group">
           <img
             src="/logo.png"
             alt="UÇAR YAZILIM"
@@ -22,18 +32,18 @@ export function Header() {
         </Link>
 
         {/* DESKTOP NAVBAR */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block flex-shrink-0">
           <NavBarDemo />
         </div>
 
         {/* RIGHT CTA & PHONE */}
         <div className="hidden md:flex items-center gap-6">
           <a
-            href="tel:+908500000000"
+            href="tel:+905385926467"
             className="flex items-center gap-2 text-xs font-semibold text-[#111111] hover:text-[#E50914] transition-colors"
           >
             <Headphones className="h-4 w-4 text-[#E50914]" />
-            <span className="font-mono text-sm tracking-wide font-bold">0850 000 00 00</span>
+            <span className="font-mono text-sm tracking-wide font-bold">0538 592 6467</span>
           </a>
 
           <Link
@@ -60,12 +70,30 @@ export function Header() {
       {mobileOpen && (
         <div className="border-b border-[#E5E5E5] bg-[#F9F9F9] px-6 py-6 lg:hidden shadow-xl animate-in slide-in-from-top-2">
           <div className="flex flex-col gap-4 text-sm font-semibold text-[#111111]">
-            <Link href="/" onClick={() => setMobileOpen(false)} className="hover:text-[#E50914] py-1 border-b border-[#E5E5E5]">Anasayfa</Link>
+            <Link
+              href="/"
+              onClick={(e) => {
+                setMobileOpen(false);
+                handleHomeClick(e);
+              }}
+              className="hover:text-[#E50914] py-1 border-b border-[#E5E5E5]"
+            >
+              Anasayfa
+            </Link>
             <Link href="/alan-adi" onClick={() => setMobileOpen(false)} className="hover:text-[#E50914] py-1 border-b border-[#E5E5E5]">Alan Adı</Link>
+            <Link href="/sunucu-barindirma" onClick={() => setMobileOpen(false)} className="hover:text-[#E50914] py-1 border-b border-[#E5E5E5]">Sunucu Barındırma (VDS & Fiziksel)</Link>
             <Link href="/web-hosting" onClick={() => setMobileOpen(false)} className="hover:text-[#E50914] py-1 border-b border-[#E5E5E5]">Web Hosting</Link>
             <Link href="/yazilim" onClick={() => setMobileOpen(false)} className="hover:text-[#E50914] py-1 border-b border-[#E5E5E5]">Yazılım</Link>
             <Link href="/e-posta" onClick={() => setMobileOpen(false)} className="hover:text-[#E50914] py-1 border-b border-[#E5E5E5]">E-Posta</Link>
             <Link href="/kurumsal" onClick={() => setMobileOpen(false)} className="hover:text-[#E50914] py-1 border-b border-[#E5E5E5]">Kurumsal</Link>
+
+            <a
+              href="tel:+905385926467"
+              className="flex items-center gap-2 text-xs font-semibold text-[#111111] hover:text-[#E50914] py-1"
+            >
+              <Phone className="h-4 w-4 text-[#E50914]" />
+              <span className="font-mono text-sm tracking-wide font-bold">0538 592 6467</span>
+            </a>
 
             <Link
               href="/kurumsal/iletisim"

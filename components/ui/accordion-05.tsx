@@ -49,7 +49,7 @@ const items = [
     id: "07",
     title: "Satış sonrası destek ve SLA şartlarınız nasıldır?",
     content:
-      "7/24 acil telefon hattı (`0850 000 00 00`) ve anlık destek bilet sistemiyle kritik arızalara 15 dakika içinde müdahale garantisi veriyoruz.",
+      "7/24 acil telefon hattı (`0538 592 6467`) ve anlık destek bilet sistemiyle kritik arızalara 15 dakika içinde müdahale garantisi veriyoruz.",
   },
   {
     id: "08",

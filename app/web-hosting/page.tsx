@@ -4,6 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import PricingSection5 from '@/components/ui/pricing';
+import { Accordion02 } from '@/components/ui/accordion-04';
 import {
   Check,
   Zap,
@@ -59,16 +60,15 @@ const ALL_PACKAGES: HostingPackage[] = [
     name: 'EKO SSD 2',
     category: 'ekonomik',
     period: 'Yıllık',
-    price: '$21.80',
+    price: '$21.28',
     features: [
       '2GB M2 SSD Disk',
       '2 GB RAM',
       'Sınırsız Aylık Trafik',
-      '1 Adet Site Barındırma',
-      '4 Adet SubDomain',
+      '2 Adet Site Barındırma',
       '100 E-Mail Adresi',
       'Sınırsız FTP Hesabı',
-      '4 Adet MySQL',
+      '2 Adet MySQL',
       'Anında Kurulum',
       '%100 CPU İzni',
       'PHP 5.6 - 8.3 Desteği',
@@ -85,16 +85,15 @@ const ALL_PACKAGES: HostingPackage[] = [
     name: 'EKO SSD 3',
     category: 'ekonomik',
     period: 'Yıllık',
-    price: '$23.99',
+    price: '$26.83',
     features: [
       '3GB M2 SSD Disk',
       '2 GB RAM',
       'Sınırsız Aylık Trafik',
-      '1 Adet Site Barındırma',
-      '4 Adet SubDomain',
+      '3 Adet Site Barındırma',
       '100 E-Mail Adresi',
       'Sınırsız FTP Hesabı',
-      '5 Adet MySQL',
+      '2 Adet MySQL',
       'Anında Kurulum',
       '%100 CPU İzni',
       'PHP 5.6 - 8.3 Desteği',
@@ -113,16 +112,16 @@ const ALL_PACKAGES: HostingPackage[] = [
     name: 'PRO SSD 1',
     category: 'profesyonel',
     period: 'Yıllık',
-    price: '$28.75',
+    price: '$35.98',
     features: [
-      '2GB M2 SSD Disk',
-      '4 GB RAM',
+      '3GB M2 SSD Disk',
+      '2 GB RAM',
       'Sınırsız Aylık Trafik',
       '3 Adet Site Barındırma',
-      '6 Adet SubDomain',
+      '5 Adet SubDomain',
       '100 E-Mail Adresi',
-      'Sınırsız FTP Hesabı',
       '5 Adet MySQL',
+      'Sınırsız FTP Hesabı',
       'Anında Kurulum',
       '%100 CPU İzni',
       'PHP 5.6 - 8.3 Desteği',
@@ -139,9 +138,9 @@ const ALL_PACKAGES: HostingPackage[] = [
     name: 'PRO SSD 2',
     category: 'profesyonel',
     period: 'Yıllık',
-    price: '$48',
+    price: '$48.00',
     popular: true,
-    badge: 'POPÜLER',
+    badge: 'EN ÇOK SATAN',
     features: [
       '5GB M2 SSD Disk',
       '2 GB RAM',
@@ -254,10 +253,6 @@ function WebHostingContent() {
           
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#E50914]/15 px-3 py-1 text-xs font-bold text-[#E50914] mb-2">
-                <Sparkles className="h-3 w-3" />
-                Detaylı Paket Listesi
-              </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111111]">
                 {activeTab === 'ekonomik'
                   ? 'Ekonomik SSD Hosting Paketleri'
@@ -389,10 +384,6 @@ function WebHostingContent() {
         <div className="mx-auto max-w-7xl px-6">
           
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#E50914]/25 bg-[#E50914]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E50914] mb-3 shadow-xs">
-              <Zap className="h-3.5 w-3.5" />
-              Gelişmiş Altyapı
-            </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] tracking-tight">
               Hosting Standartlarımız
             </h2>
@@ -447,41 +438,19 @@ function WebHostingContent() {
         </div>
       </section>
 
-      {/* 4. WEB HOSTING FAQ */}
-      <section className="py-20 bg-[#F9F9F9]">
+      {/* 4. WEB HOSTING FAQ WITH ACCORDION02 COMPONENT */}
+      <section className="py-20 bg-[#F9F9F9]" id="sss">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#E50914]/25 bg-[#E50914]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E50914] mb-3 shadow-xs">
-              <HelpCircle className="h-3.5 w-3.5" />
-              Merak Edilenler
-            </div>
-            <h3 className="text-3xl font-extrabold text-[#111111]">
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-[#111111] tracking-tight">
               Web Hosting Hakkında Sıkça Sorulanlar
             </h3>
+            <p className="text-sm text-[#555555] mt-2">
+              Hosting altyapımız, taşıma ve aktivasyon süreçleri hakkında merak edilen tüm sorular.
+            </p>
           </div>
 
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-xs">
-              <h4 className="font-bold text-base text-[#111111] mb-2">Hosting siparişim ne zaman aktif olur?</h4>
-              <p className="text-xs text-[#555555] leading-relaxed">
-                Kredi kartı ile yapılan tüm web hosting ve reseller siparişleri anında otomatik olarak kurulur ve cPanel giriş bilgileriniz e-posta adresinize gönderilir.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-xs">
-              <h4 className="font-bold text-base text-[#111111] mb-2">Eski sitemi ücretsiz taşıyor musunuz?</h4>
-              <p className="text-xs text-[#555555] leading-relaxed">
-                Evet! Farklı bir firmada bulunan cPanel veya Plesk yedeklerinizi uzman ekibimiz hiçbir kesinti yaşatmadan ücretsiz olarak yeni sunucunuza aktarır.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-xs">
-              <h4 className="font-bold text-base text-[#111111] mb-2">Reseller (Bayi) hosting ile kendi müşterilerime hosting satabilir miyim?</h4>
-              <p className="text-xs text-[#555555] leading-relaxed">
-                Evet. Size verilen WHM yönetim paneli üzerinden dilediğiniz disk ve trafik kotalarında bağımsız cPanel hesapları açabilir ve kendi müşterilerinize satabilirsiniz.
-              </p>
-            </div>
-          </div>
+          <Accordion02 />
         </div>
       </section>
 

@@ -66,11 +66,11 @@ export function DomainSearchInput({ onSearch }: DomainSearchInputProps) {
   return (
     <div className="w-full max-w-3xl mx-auto">
       <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 items-stretch">
-        <InputGroup className="flex-1 bg-white border-slate-300 hover:border-[#2D9F9D] focus-within:border-[#2D9F9D] focus-within:ring-[3px] focus-within:ring-[#2D9F9D]/20 shadow-md transition-all">
+        <InputGroup className="flex-1 bg-white border-[#E5E5E5] hover:border-[#E50914] focus-within:border-[#E50914] focus-within:ring-[3px] focus-within:ring-[#E50914]/15 shadow-md transition-all rounded-2xl">
           {/* Prefix Addon */}
           <InputGroupAddon className="border-0 bg-transparent pl-4 pr-1">
-            <InputGroupText className="text-[#4A5568] font-mono flex items-center gap-1.5 text-xs sm:text-sm">
-              <Globe className="h-4 w-4 text-[#2D9F9D]" />
+            <InputGroupText className="text-[#555555] font-mono flex items-center gap-1.5 text-xs sm:text-sm">
+              <Globe className="h-4 w-4 text-[#E50914]" />
               <span>https://</span>
             </InputGroupText>
           </InputGroupAddon>
@@ -80,30 +80,30 @@ export function DomainSearchInput({ onSearch }: DomainSearchInputProps) {
             value={domainName}
             onChange={(e) => setDomainName(e.target.value)}
             placeholder="alanadiniz"
-            className="border-0 bg-transparent pl-1 font-mono text-sm sm:text-base text-[#1A4F7C] font-semibold placeholder:text-slate-400 shadow-none outline-none focus-visible:ring-0"
+            className="border-0 bg-transparent pl-1 font-mono text-sm sm:text-base text-[#111111] font-semibold placeholder:text-slate-400 shadow-none outline-none focus-visible:ring-0"
           />
 
           {/* Suffix Select Dropdown for Extensions */}
           <InputGroupAddon align="inline-end" className="border-0 bg-transparent pr-2 pl-1">
             <Select value={extension} onValueChange={(val) => setExtension(val)}>
-              <SelectTrigger className="h-8 border border-slate-200 bg-slate-50 hover:bg-slate-100 text-[#1A4F7C] font-mono font-bold text-xs sm:text-sm rounded-lg px-2.5 shadow-none focus:ring-0">
+              <SelectTrigger className="h-9 border border-[#E5E5E5] bg-[#F9F9F9] hover:bg-red-50 hover:text-[#E50914] text-[#111111] font-mono font-bold text-xs sm:text-sm rounded-xl px-3 shadow-none focus:ring-0 transition-colors">
                 <SelectValue placeholder=".com" />
               </SelectTrigger>
-              <SelectContent className="bg-white border-slate-200 text-[#1A4F7C] shadow-xl">
-                <SelectItem value=".com" className="font-mono text-xs hover:bg-slate-50 hover:text-[#2D9F9D]">
-                  .com <span className="text-[#4A5568] text-[10px] ml-1">(₺289/yıl)</span>
+              <SelectContent className="bg-white border-[#E5E5E5] text-[#111111] shadow-2xl rounded-2xl">
+                <SelectItem value=".com" className="font-mono text-xs hover:bg-red-50 hover:text-[#E50914] cursor-pointer">
+                  .com <span className="text-[#E50914] font-bold text-[10px] ml-1">(₺289/yıl)</span>
                 </SelectItem>
-                <SelectItem value=".com.tr" className="font-mono text-xs hover:bg-slate-50 hover:text-[#2D9F9D]">
-                  .com.tr <span className="text-[#4A5568] text-[10px] ml-1">(₺149/yıl)</span>
+                <SelectItem value=".com.tr" className="font-mono text-xs hover:bg-red-50 hover:text-[#E50914] cursor-pointer">
+                  .com.tr <span className="text-[#E50914] font-bold text-[10px] ml-1">(₺149/yıl)</span>
                 </SelectItem>
-                <SelectItem value=".net.tr" className="font-mono text-xs hover:bg-slate-50 hover:text-[#2D9F9D]">
-                  .net.tr <span className="text-[#4A5568] text-[10px] ml-1">(₺149/yıl)</span>
+                <SelectItem value=".net.tr" className="font-mono text-xs hover:bg-red-50 hover:text-[#E50914] cursor-pointer">
+                  .net.tr <span className="text-[#E50914] font-bold text-[10px] ml-1">(₺149/yıl)</span>
                 </SelectItem>
-                <SelectItem value=".net" className="font-mono text-xs hover:bg-slate-50 hover:text-[#2D9F9D]">
-                  .net <span className="text-[#4A5568] text-[10px] ml-1">(₺319/yıl)</span>
+                <SelectItem value=".net" className="font-mono text-xs hover:bg-red-50 hover:text-[#E50914] cursor-pointer">
+                  .net <span className="text-[#E50914] font-bold text-[10px] ml-1">(₺319/yıl)</span>
                 </SelectItem>
-                <SelectItem value=".org" className="font-mono text-xs hover:bg-slate-50 hover:text-[#2D9F9D]">
-                  .org <span className="text-[#4A5568] text-[10px] ml-1">(₺349/yıl)</span>
+                <SelectItem value=".org" className="font-mono text-xs hover:bg-red-50 hover:text-[#E50914] cursor-pointer">
+                  .org <span className="text-[#E50914] font-bold text-[10px] ml-1">(₺349/yıl)</span>
                 </SelectItem>
               </SelectContent>
             </Select>
@@ -113,31 +113,31 @@ export function DomainSearchInput({ onSearch }: DomainSearchInputProps) {
         {/* Submit Button */}
         <Button
           type="submit"
-          className="h-12 px-8 rounded-xl bg-gradient-to-r from-[#1A4F7C] to-[#2D9F9D] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#1A4F7C]/20 hover:scale-[1.02] hover:shadow-[#1A4F7C]/30 transition-all flex items-center justify-center gap-2"
+          className="h-12 px-8 rounded-2xl bg-[#E50914] hover:bg-[#B91C1C] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#E50914]/25 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
-          <Search className="h-4 w-4 text-[#6EDCD7]" />
+          <Search className="h-4 w-4" />
           <span>Sorgula</span>
         </Button>
       </form>
 
       {/* Instant Result Box */}
       {searchResult && (
-        <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-2xl bg-[#F0FDFA] border border-[#2D9F9D]/40 p-4 shadow-sm animate-in fade-in-50">
+        <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-2xl bg-red-50/70 border border-red-200 p-4 shadow-sm animate-in fade-in-50">
           <div className="flex items-center gap-3">
-            <CheckCircle className="h-5 w-5 text-[#2D9F9D] flex-shrink-0" />
+            <CheckCircle className="h-5 w-5 text-[#E50914] flex-shrink-0" />
             <div>
-              <div className="font-mono font-bold text-[#1A4F7C] text-sm sm:text-base">
-                {searchResult.domain} <span className="text-[#2D9F9D] font-bold text-xs ml-2">Müsait!</span>
+              <div className="font-mono font-bold text-[#111111] text-sm sm:text-base">
+                {searchResult.domain} <span className="text-[#E50914] font-bold text-xs ml-2 bg-red-100 px-2 py-0.5 rounded-md">Müsait!</span>
               </div>
-              <div className="text-xs text-[#4A5568]">
-                İlk yıl özel fiyat: <span className="font-bold text-[#1A4F7C]">{searchResult.price}</span> (Ücretsiz DNS & Whois)
+              <div className="text-xs text-[#555555]">
+                İlk yıl özel fiyat: <span className="font-bold text-[#E50914] font-mono">{searchResult.price}</span> (Ücretsiz DNS & Whois)
               </div>
             </div>
           </div>
 
           <Link
-            href={`/alan-adi/sorgulama?domain=${encodeURIComponent(searchResult.domain)}`}
-            className="w-full sm:w-auto rounded-xl bg-[#2D9F9D] hover:bg-[#1A4F7C] px-5 py-2.5 text-xs font-bold text-white text-center transition-all shadow-sm"
+            href={`/alan-adi?query=${encodeURIComponent(searchResult.domain)}`}
+            className="w-full sm:w-auto rounded-xl bg-[#E50914] hover:bg-[#B91C1C] px-5 py-2.5 text-xs font-bold text-white text-center transition-all shadow-md shadow-[#E50914]/20 hover:scale-105"
           >
             Hemen Kaydet
           </Link>

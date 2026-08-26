@@ -23,7 +23,7 @@ export function CoreServiceCards() {
               </p>
             </div>
             <Link
-              href="/web-hosting/vds-sunucu"
+              href="/sunucu-barindirma"
               className="flex items-center justify-center gap-1.5 rounded-xl border border-[#E5E5E5] bg-[#F9F9F9] py-2.5 text-xs font-bold text-[#111111] transition-colors hover:bg-[#E50914] hover:border-[#E50914] hover:text-white"
             >
               <span>Paketleri İncele</span>
@@ -43,7 +43,7 @@ export function CoreServiceCards() {
               </p>
             </div>
             <Link
-              href="/web-hosting/co-location"
+              href="/sunucu-barindirma"
               className="flex items-center justify-center gap-1.5 rounded-xl border border-[#E5E5E5] bg-[#F9F9F9] py-2.5 text-xs font-bold text-[#111111] transition-colors hover:bg-[#111111] hover:border-[#111111] hover:text-white"
             >
               <span>Paketleri İncele</span>

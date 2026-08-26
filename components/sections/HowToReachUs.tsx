@@ -50,8 +50,8 @@ export function HowToReachUs() {
                 <div>
                   <h4 className="text-base font-bold text-[#1A4F7C] mb-1">Doğrudan Çağrı & Destek</h4>
                   <p className="text-xs text-[#4A5568] mb-3">7/24 Kesintisiz acil ve kurumsal iletişim hattı.</p>
-                  <a href="tel:+908500000000" className="font-mono text-lg font-bold text-[#1A4F7C] hover:text-[#2D9F9D]">
-                    +90 (850) 000 00 00
+                  <a href="tel:+905385926467" className="font-mono text-lg font-bold text-[#1A4F7C] hover:text-[#2D9F9D]">
+                    0538 592 6467
                   </a>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export function HowToReachUs() {
                   <h4 className="text-base font-bold text-[#1A4F7C] mb-1">WhatsApp Canlı Destek</h4>
                   <p className="text-xs text-[#4A5568] mb-3">Hemen mesaj atın, teknik uzmanımızla anında görüşün.</p>
                   <a
-                    href="https://wa.me/905000000000?text=Merhaba,%20yazilim%20ve%20sunucu%20hizmetleriniz%20hakkinda%20bilgi%20almak%20istiyorum."
+                    href="https://wa.me/905385926467?text=Merhaba,%20yazilim%20ve%20sunucu%20hizmetleriniz%20hakkinda%20bilgi%20almak%20istiyorum."
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-xl bg-[#2D9F9D] px-4 py-2 text-xs font-bold text-white hover:bg-[#1A4F7C] transition-all shadow-sm"

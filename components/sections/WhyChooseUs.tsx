@@ -68,11 +68,6 @@ export function WhyChooseUs() {
           
           {/* Left Column: Sticky Title & Overview */}
           <div className="lg:col-span-5 lg:sticky lg:top-24 pt-0">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#E50914]/25 bg-[#E50914]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E50914] mb-5 shadow-xs">
-              <Sparkles className="h-3.5 w-3.5" />
-              Bölüm 2: Tercih Sebepleri
-            </div>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight mb-6">
               Neden Bizi <br />
               <span className="text-[#E50914]">
