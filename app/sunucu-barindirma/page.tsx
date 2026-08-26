@@ -178,35 +178,35 @@ export default function SunucuBarindirmaPage() {
       <ServerPricingSection />
 
       {/* 3. DETAILED COMPARISON TABLE SECTION (MATCHING USER PNG EXACTLY) */}
-      <section className="py-16 px-6 bg-white border-y border-[#E5E5E5]" id="karsilastirma-tablosu">
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white border-y border-[#E5E5E5]" id="karsilastirma-tablosu">
         <div className="mx-auto max-w-7xl">
           
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] tracking-tight">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#111111] tracking-tight">
               Sunucu & Hosting Karşılaştırma Tablosu
             </h2>
-            <p className="text-sm text-[#555555] mt-2">
+            <p className="text-xs sm:text-sm text-[#555555] mt-2">
               VDS/VPS, Reseller Hosting ve Fiziksel Sunucuların teknik donanım ve yazılım farklılıklarını inceleyin.
             </p>
           </div>
 
           {/* TABLE CONTAINER */}
-          <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-xl bg-white">
-            <table className="w-full text-left border-collapse min-w-[780px]">
+          <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-xl bg-white -mx-2 sm:mx-0">
+            <table className="w-full text-left border-collapse min-w-[620px] sm:min-w-[760px]">
               
               {/* TABLE HEADER WITH #E50914 BACKGROUND AND #F9F9F9 BROKEN WHITE TEXT */}
               <thead>
-                <tr className="text-sm font-black text-center bg-[#E50914] text-[#F9F9F9] shadow-md">
-                  <th className="py-4 px-6 text-left w-1/4 uppercase tracking-wider rounded-tl-2xl text-[#F9F9F9]">
+                <tr className="text-xs sm:text-sm font-black text-center bg-[#E50914] text-[#F9F9F9] shadow-md">
+                  <th className="py-3.5 sm:py-4 px-3 sm:px-6 text-left w-1/4 uppercase tracking-wider rounded-tl-2xl text-[#F9F9F9]">
                     Özellikler
                   </th>
-                  <th className="py-4 px-6 w-1/4 uppercase tracking-wider text-[#F9F9F9]">
+                  <th className="py-3.5 sm:py-4 px-3 sm:px-6 w-1/4 uppercase tracking-wider text-[#F9F9F9]">
                     VDS/VPS
                   </th>
-                  <th className="py-4 px-6 w-1/4 uppercase tracking-wider text-[#F9F9F9]">
+                  <th className="py-3.5 sm:py-4 px-3 sm:px-6 w-1/4 uppercase tracking-wider text-[#F9F9F9]">
                     Reseller Hosting
                   </th>
-                  <th className="py-4 px-6 w-1/4 uppercase tracking-wider rounded-tr-2xl text-[#F9F9F9]">
+                  <th className="py-3.5 sm:py-4 px-3 sm:px-6 w-1/4 uppercase tracking-wider rounded-tr-2xl text-[#F9F9F9]">
                     Fiziksel Sunucu
                   </th>
                 </tr>
@@ -216,153 +216,153 @@ export default function SunucuBarindirmaPage() {
               <tbody className="divide-y divide-slate-100 text-xs sm:text-sm text-slate-700">
                 {/* 1. İşlemci */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">İşlemci</td>
-                  <td className="py-4 px-6 text-center font-medium">Paylaşımlı vCPU</td>
-                  <td className="py-4 px-6 text-center font-medium">CloudLinux Optimize</td>
-                  <td className="py-4 px-6 text-center font-medium">Özel Intel/AMD</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">İşlemci</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">Paylaşımlı vCPU</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">CloudLinux Optimize</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">Özel Intel/AMD</td>
                 </tr>
 
                 {/* 2. RAM */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">RAM</td>
-                  <td className="py-4 px-6 text-center font-medium">2-32 GB</td>
-                  <td className="py-4 px-6 text-center font-medium">4-16 GB</td>
-                  <td className="py-4 px-6 text-center font-medium">16-256 GB</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">RAM</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">2-32 GB</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">4-16 GB</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">16-256 GB</td>
                 </tr>
 
                 {/* 3. Depolama */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">Depolama</td>
-                  <td className="py-4 px-6 text-center font-medium">SSD 40-500 GB</td>
-                  <td className="py-4 px-6 text-center font-medium">SSD 100-500 GB</td>
-                  <td className="py-4 px-6 text-center font-medium">SSD/NVMe 500-2TB</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">Depolama</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">SSD 40-500 GB</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">SSD 100-500 GB</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">SSD/NVMe 500-2TB</td>
                 </tr>
 
                 {/* 4. Trafik/Bandwidth */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">Trafik/Bandwidth</td>
-                  <td className="py-4 px-6 text-center font-medium">Sınırsız*</td>
-                  <td className="py-4 px-6 text-center font-medium">Sınırsız*</td>
-                  <td className="py-4 px-6 text-center font-medium">Sınırsız</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">Trafik/Bandwidth</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">Sınırsız*</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">Sınırsız*</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">Sınırsız</td>
                 </tr>
 
                 {/* 5. Root Erişimi */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">Root Erişimi</td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="h-5 w-5 text-emerald-600 mx-auto stroke-[2.5]" />
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">Root Erişimi</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mx-auto stroke-[2.5]" />
                   </td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="text-red-500 font-bold text-lg">✕</span>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <span className="text-red-500 font-bold text-base sm:text-lg">✕</span>
                   </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="h-5 w-5 text-emerald-600 mx-auto stroke-[2.5]" />
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mx-auto stroke-[2.5]" />
                   </td>
                 </tr>
 
                 {/* 6. cPanel/WHM */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">cPanel/WHM</td>
-                  <td className="py-4 px-6 text-center font-medium text-slate-600">Opsiyonel</td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="h-5 w-5 text-emerald-600 mx-auto stroke-[2.5]" />
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">cPanel/WHM</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium text-slate-600">Opsiyonel</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mx-auto stroke-[2.5]" />
                   </td>
-                  <td className="py-4 px-6 text-center font-medium text-slate-600">Opsiyonel</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium text-slate-600">Opsiyonel</td>
                 </tr>
 
                 {/* 7. CloudLinux */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">CloudLinux</td>
-                  <td className="py-4 px-6 text-center font-medium text-slate-600">Opsiyonel</td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="h-5 w-5 text-emerald-600 mx-auto stroke-[2.5]" />
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">CloudLinux</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium text-slate-600">Opsiyonel</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mx-auto stroke-[2.5]" />
                   </td>
-                  <td className="py-4 px-6 text-center font-medium text-slate-600">Opsiyonel</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium text-slate-600">Opsiyonel</td>
                 </tr>
 
                 {/* 8. LiteSpeed WebServer */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">LiteSpeed WebServer</td>
-                  <td className="py-4 px-6 text-center font-medium text-slate-600">Opsiyonel</td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="h-5 w-5 text-emerald-600 mx-auto stroke-[2.5]" />
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">LiteSpeed WebServer</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium text-slate-600">Opsiyonel</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mx-auto stroke-[2.5]" />
                   </td>
-                  <td className="py-4 px-6 text-center font-medium text-slate-600">Opsiyonel</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium text-slate-600">Opsiyonel</td>
                 </tr>
 
                 {/* 9. Ana Sunucu Yönetimi */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">Ana Sunucu Yönetimi</td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="h-5 w-5 text-emerald-600 mx-auto stroke-[2.5]" />
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">Ana Sunucu Yönetimi</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mx-auto stroke-[2.5]" />
                   </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="h-5 w-5 text-emerald-600 mx-auto stroke-[2.5]" />
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mx-auto stroke-[2.5]" />
                   </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="h-5 w-5 text-emerald-600 mx-auto stroke-[2.5]" />
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center">
+                    <Check className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-600 mx-auto stroke-[2.5]" />
                   </td>
                 </tr>
 
                 {/* 10. Donanım Değişikliği */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">Donanım Değişikliği</td>
-                  <td className="py-4 px-6 text-center font-medium">Kolay</td>
-                  <td className="py-4 px-6 text-center font-medium">Kolay</td>
-                  <td className="py-4 px-6 text-center font-medium">Karmaşık</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">Donanım Değişikliği</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">Kolay</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">Kolay</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center font-medium">Karmaşık</td>
                 </tr>
 
                 {/* 11. Maliyet (Stars) */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">Maliyet</td>
-                  <td className="py-4 px-6 text-center text-amber-400 font-bold text-base tracking-widest">
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">Maliyet</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center text-amber-500 font-bold text-xs sm:text-sm tracking-wider">
                     ★★
                   </td>
-                  <td className="py-4 px-6 text-center text-amber-400 font-bold text-base tracking-widest">
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center text-amber-500 font-bold text-xs sm:text-sm tracking-wider">
                     ★★★
                   </td>
-                  <td className="py-4 px-6 text-center text-amber-400 font-bold text-base tracking-widest">
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center text-amber-500 font-bold text-xs sm:text-sm tracking-wider">
                     ★★★★★
                   </td>
                 </tr>
 
                 {/* 12. En İyi Kullanım */}
                 <tr className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-bold text-slate-900">En İyi Kullanım</td>
-                  <td className="py-4 px-6 text-center text-xs leading-relaxed text-slate-600">
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 font-bold text-slate-900">En İyi Kullanım</td>
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center text-xs leading-relaxed text-slate-600">
                     Çeşitli web projeleri, uygulamalar
                   </td>
-                  <td className="py-4 px-6 text-center text-xs leading-relaxed text-slate-600">
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center text-xs leading-relaxed text-slate-600">
                     Hosting satışı, web ajanslar
                   </td>
-                  <td className="py-4 px-6 text-center text-xs leading-relaxed text-slate-600">
+                  <td className="py-3 sm:py-4 px-3 sm:px-6 text-center text-xs leading-relaxed text-slate-600">
                     Yüksek trafik, veritabanı, kurumsal
                   </td>
                 </tr>
 
                 {/* 13. Teklif Al Butonları */}
                 <tr className="bg-slate-50/50">
-                  <td className="py-6 px-6"></td>
-                  <td className="py-6 px-6 text-center">
+                  <td className="py-4 sm:py-5 px-3 sm:px-6"></td>
+                  <td className="py-4 sm:py-5 px-3 sm:px-6 text-center">
                     <Link
                       href="/kurumsal/iletisim?paket=VDS/VPS"
-                      className="inline-block px-6 py-2 rounded-xl border border-blue-500 bg-white text-xs font-bold text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-xs"
+                      className="inline-block px-4 sm:px-6 py-2 rounded-xl border border-[#E50914] bg-white text-xs font-bold text-[#E50914] hover:bg-[#E50914] hover:text-white transition-all shadow-xs"
                     >
                       Teklif Alın
                     </Link>
                   </td>
-                  <td className="py-6 px-6 text-center">
+                  <td className="py-4 sm:py-5 px-3 sm:px-6 text-center">
                     <Link
                       href="/kurumsal/iletisim?paket=Reseller%20Hosting"
-                      className="inline-block px-6 py-2 rounded-xl border border-blue-500 bg-white text-xs font-bold text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-xs"
+                      className="inline-block px-4 sm:px-6 py-2 rounded-xl border border-[#E50914] bg-white text-xs font-bold text-[#E50914] hover:bg-[#E50914] hover:text-white transition-all shadow-xs"
                     >
                       Teklif Alın
                     </Link>
                   </td>
-                  <td className="py-6 px-6 text-center">
+                  <td className="py-4 sm:py-5 px-3 sm:px-6 text-center">
                     <Link
                       href="/kurumsal/iletisim?paket=Fiziksel%20Sunucu"
-                      className="inline-block px-6 py-2 rounded-xl border border-blue-500 bg-white text-xs font-bold text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-xs"
+                      className="inline-block px-4 sm:px-6 py-2 rounded-xl border border-[#E50914] bg-white text-xs font-bold text-[#E50914] hover:bg-[#E50914] hover:text-white transition-all shadow-xs"
                     >
                       Teklif Alın
                     </Link>
@@ -373,7 +373,7 @@ export default function SunucuBarindirmaPage() {
             </table>
           </div>
 
-          <div className="mt-4 text-left text-[11px] text-slate-500 italic">
+          <div className="mt-3 text-left text-[11px] text-slate-500 italic">
             * Adil kullanım politikası uygulanır
           </div>
 

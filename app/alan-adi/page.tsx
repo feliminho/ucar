@@ -305,31 +305,31 @@ export default function AlanAdiPage() {
         </div>
 
         {/* TOP ROW: Left-aligned Title Info & Far Top-Right Currency / Cart */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full flex flex-col md:flex-row md:items-start md:justify-between gap-6 pt-2">
+        <div className="relative z-10 mx-auto max-w-7xl w-full flex flex-col md:flex-row md:items-start md:justify-between gap-4 sm:gap-6 pt-2">
           {/* Left Text */}
           <div className="max-w-2xl text-left">
             <h1
               style={{ color: '#F9F9F9' }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight drop-shadow-md"
+              className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight drop-shadow-md"
             >
               Alan Adı Tescil & Yönetim
             </h1>
             <p
               style={{ color: '#F4F4F0' }}
-              className="text-sm sm:text-base mt-3 leading-relaxed max-w-xl font-medium drop-shadow-sm opacity-95"
+              className="text-xs sm:text-base mt-2 sm:mt-3 leading-relaxed max-w-xl font-medium drop-shadow-sm opacity-95"
             >
               Hayalinizdeki markayı saniyeler içinde tescil edin. Ücretsiz DNS yönetimi, Whois gizliliği ve 7/24 uzman desteğiyle.
             </p>
           </div>
 
           {/* Right Top: Currency Switcher & Cart positioned all the way to the right */}
-          <div className="flex items-center gap-3 self-end md:self-auto bg-slate-950/70 p-1.5 rounded-2xl border border-white/10 backdrop-blur-md shadow-2xl">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 self-start md:self-auto bg-slate-950/70 p-1.5 rounded-2xl border border-white/10 backdrop-blur-md shadow-2xl">
             <div className="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-700/60">
               {(['TRY', 'USD', 'EUR'] as const).map((curr) => (
                 <button
                   key={curr}
                   onClick={() => setCurrency(curr)}
-                  className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                  className={`px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-bold rounded-lg transition-all cursor-pointer ${
                     currency === curr
                       ? 'bg-red-600 text-white shadow-sm'
                       : 'text-slate-400 hover:text-white'
@@ -342,7 +342,7 @@ export default function AlanAdiPage() {
 
             <button
               onClick={() => setShowCartDrawer(true)}
-              className="relative flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all cursor-pointer shadow-sm"
+              className="relative flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-bold text-white transition-all cursor-pointer shadow-sm"
             >
               <ShoppingCart className="h-4 w-4" />
               <span>Sepet</span>
@@ -356,54 +356,54 @@ export default function AlanAdiPage() {
         </div>
 
         {/* BOTTOM ROW: Tab Buttons cleanly positioned on the bottom left */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full mt-10 flex justify-start">
-          <div className="flex flex-wrap items-center gap-2 p-1.5 bg-slate-950/80 rounded-2xl border border-white/15 backdrop-blur-xl shadow-2xl w-fit">
+        <div className="relative z-10 mx-auto max-w-7xl w-full mt-6 sm:mt-10 flex justify-start">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 p-1.5 bg-slate-950/80 rounded-2xl border border-white/15 backdrop-blur-xl shadow-2xl w-full sm:w-fit">
             <button
               onClick={() => setActiveTab('search')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeTab === 'search'
                   ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
               }`}
             >
-              <Search className="h-4 w-4" />
-              Alan Adı Sorgula
+              <Search className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>Sorgula</span>
             </button>
 
             <button
               onClick={() => setActiveTab('ai')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeTab === 'ai'
                   ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-600/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
               }`}
             >
-              <Bot className="h-4 w-4 text-purple-300" />
-              AI İsim Üretici
+              <Bot className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-purple-300" />
+              <span>AI İsim</span>
             </button>
 
             <button
               onClick={() => setActiveTab('transfer')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeTab === 'transfer'
                   ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
               }`}
             >
-              <ArrowLeftRight className="h-4 w-4" />
-              Transfer Sihirbazı
+              <ArrowLeftRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>Transfer</span>
             </button>
 
             <button
               onClick={() => setActiveTab('whois')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeTab === 'whois'
                   ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
                   : 'text-slate-300 hover:text-white hover:bg-white/10'
               }`}
             >
-              <Globe className="h-4 w-4" />
-              WHOIS & DNS
+              <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>WHOIS</span>
             </button>
 
             <button
@@ -411,30 +411,30 @@ export default function AlanAdiPage() {
                 const el = document.getElementById('fiyat-tablosu');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-300 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
             >
-              <SlidersHorizontal className="h-4 w-4" />
-              Fiyat Tablosuna Git
+              <SlidersHorizontal className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>Fiyatlar</span>
             </button>
           </div>
         </div>
       </section>
 
       {/* 2. INTERACTIVE MAIN CONTENT AREA BY TAB */}
-      <section className="py-12 px-6">
+      <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           
           {/* TAB 1: DOMAIN SEARCH */}
           {activeTab === 'search' && (
-            <div className="space-y-10 animate-in fade-in duration-300">
+            <div className="space-y-6 sm:space-y-10 animate-in fade-in duration-300">
               
               {/* Search Box */}
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/60">
-                <div className="max-w-3xl mx-auto text-center mb-6">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111111] tracking-tight">
+              <div className="rounded-3xl border border-slate-200 bg-white p-5 sm:p-8 shadow-xl shadow-slate-200/60">
+                <div className="max-w-3xl mx-auto text-center mb-5 sm:mb-6">
+                  <h2 className="text-xl sm:text-3xl font-extrabold text-[#111111] tracking-tight">
                     Mükemmel Alan Adını Şimdi Bulun
                   </h2>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-1.5">
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
                     Tüm uzantılarda eş zamanlı anlık müsaitlik ve fiyat kontrolü
                   </p>
                 </div>
@@ -444,7 +444,7 @@ export default function AlanAdiPage() {
                     e.preventDefault();
                     handleDomainSearch();
                   }}
-                  className="flex flex-col sm:flex-row gap-3 max-w-4xl mx-auto"
+                  className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 max-w-4xl mx-auto"
                 >
                   <div className="relative flex-1">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
@@ -452,32 +452,32 @@ export default function AlanAdiPage() {
                       type="text"
                       value={domainQuery}
                       onChange={(e) => setDomainQuery(e.target.value)}
-                      placeholder="Aradığınız alan adını yazın (örn: projem, sirketim.com)..."
-                      className="w-full h-14 pl-12 pr-4 rounded-2xl border border-slate-200 bg-slate-50 text-base font-semibold text-[#111111] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:bg-white transition-all font-mono"
+                      placeholder="Aradığınız alan adını yazın..."
+                      className="w-full h-12 sm:h-14 pl-12 pr-4 rounded-2xl border border-slate-200 bg-slate-50 text-sm sm:text-base font-semibold text-[#111111] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:bg-white transition-all font-mono"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSearching}
-                    className="h-14 px-8 rounded-2xl bg-red-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-red-600/30 hover:bg-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="h-12 sm:h-14 px-6 sm:px-8 rounded-2xl bg-red-600 text-white font-bold text-xs sm:text-base shadow-lg shadow-red-600/30 hover:bg-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {isSearching ? (
                       <>
-                        <RefreshCw className="h-5 w-5 animate-spin" />
+                        <RefreshCw className="h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
                         <span>Sorgulanıyor...</span>
                       </>
                     ) : (
                       <>
                         <span>Sorgula</span>
-                        <ArrowRight className="h-5 w-5" />
+                        <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                       </>
                     )}
                   </button>
                 </form>
 
                 {/* Popular Spotlight Cards */}
-                <div className="mt-8 pt-6 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
                   {SPOTLIGHT_CARDS.map((card) => (
                     <div
                       key={card.tld}
@@ -486,15 +486,15 @@ export default function AlanAdiPage() {
                         setDomainQuery(`${clean}${card.tld}`);
                         handleDomainSearch(`${clean}${card.tld}`);
                       }}
-                      className={`group relative cursor-pointer rounded-2xl border bg-slate-50/70 p-3.5 text-center hover:bg-white hover:shadow-md hover:border-red-500 transition-all ${card.color}`}
+                      className={`group relative cursor-pointer rounded-2xl border bg-slate-50/70 p-2.5 sm:p-3.5 text-center hover:bg-white hover:shadow-md hover:border-red-500 transition-all ${card.color}`}
                     >
-                      <span className="inline-block rounded-full bg-red-500/10 text-red-600 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wide mb-1">
+                      <span className="inline-block rounded-full bg-red-500/10 text-red-600 px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[9px] font-extrabold uppercase tracking-wide mb-0.5 sm:mb-1 truncate max-w-full">
                         {card.promo}
                       </span>
-                      <div className="text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors">
+                      <div className="text-base sm:text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors font-mono">
                         {card.tld}
                       </div>
-                      <div className="text-xs font-bold text-red-600 font-mono mt-0.5">
+                      <div className="text-[11px] sm:text-xs font-bold text-red-600 font-mono mt-0.5">
                         {card.price}
                       </div>
                     </div>
