@@ -171,7 +171,7 @@ export function WhatWeDo() {
         {/* 1. VISUAL SLIDER SELECTOR (FULL WIDTH) */}
         <div className="mb-14 w-full">
           <ImageComparison
-            beforeImage="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&h=800&fit=crop&q=80"
+            beforeImage="/server-rack.png"
             afterImage="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&h=800&fit=crop&q=80"
             beforeLabel="💻 Yazılım Hizmetleri"
             afterLabel="🖥️ Sunucu Altyapısı"

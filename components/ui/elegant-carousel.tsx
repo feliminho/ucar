@@ -35,12 +35,11 @@ const slides: SlideData[] = [
     description:
       '%100 Paylaşımsız CPU/RAM kaynakları, Tier III İstanbul Veri Merkezi altyapısı, donanımsal DDoS koruması ve ultra hızlı NVMe SSD depolama.',
     accent: '#111111',
-    imageUrl:
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=900&fit=crop&q=80',
+    imageUrl: '/server-rack.png',
     ctaText: 'Sunucu Paketlerini İncele',
-    ctaLink: '/web-hosting/vds-sunucu',
+    ctaLink: '/sunucu-barindirma',
     secondaryCtaText: 'VDS Yapılandır',
-    secondaryCtaLink: '/web-hosting/vds-sunucu',
+    secondaryCtaLink: '/sunucu-barindirma/vds-sunucu',
   },
   {
     title: 'Yapay Zekâ (AI) & İş Zekası',
