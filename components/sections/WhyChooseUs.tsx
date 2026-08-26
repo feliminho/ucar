@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ContainerScroll, CardSticky } from '@/components/ui/cards-stack';
-import { Sparkles, ArrowRight, ShieldCheck, Zap, Code2, Server, Headphones } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, Zap, Code2, Server, Headphones, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 const WHY_US_CARDS = [
@@ -51,7 +51,7 @@ const WHY_US_CARDS = [
     num: '05',
     title: '7/24 Doğrudan Mühendis Seviyesinde Destek',
     description:
-      'Otomatik yanıtlara değil, doğrudan sistem ve yazılım mühendislerimize ulaşırsınız. Kritik durumlarda 15 dakika içinde çözüm garantisi sunuyoruz.',
+      'Otomatik bot yanıtlarına değil, doğrudan sistem ve yazılım mühendislerimize ulaşırsınız. Kritik durumlarda 15 dakika içinde çözüm garantisi sunuyoruz.',
     icon: <Headphones className="h-5 w-5 text-[#E50914]" />,
     badge: '7/24 SLA',
     accent: '#E50914',
@@ -60,89 +60,100 @@ const WHY_US_CARDS = [
 
 export function WhyChooseUs() {
   return (
-    <section className="pt-20 pb-16 bg-[#F9F9F9] text-[#111111] border-t border-[#E5E5E5]" id="why-choose-us">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-20 lg:py-24 bg-[#F9F9F9] text-[#111111] border-t border-[#E5E5E5]" id="why-choose-us">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        {/* Sticky 2-Column Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        {/* 2-Column Sticky Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          {/* Left Column: Sticky Title & Overview */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 pt-0">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight mb-6">
+          {/* Left Column: Sticky Title & Details */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#E50914]/25 bg-[#E50914]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#E50914] mb-4">
+              <Sparkles className="h-3.5 w-3.5" />
+              Kurumsal Farkımız
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111111] tracking-tight leading-tight mb-4 sm:mb-6">
               Neden Bizi <br />
               <span className="text-[#E50914]">
                 Tercih Etmelisiniz?
               </span>
             </h2>
 
-            <p className="text-base text-[#4A4A4A] leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-[#4A4A4A] leading-relaxed mb-6 sm:mb-8">
               Yalnızca kod yazmıyor veya sunucu kiralamıyoruz; işletmenizin gelirini artıran, maliyetlerini düşüren ve kesintisiz çalışan güvenilir bir teknoloji ortaklığı sunuyoruz.
             </p>
 
-            <div className="flex flex-col gap-3">
-              <Link
-                href="/kurumsal/iletisim"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#E50914] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#E50914]/25 hover:bg-[#B91C1C] hover:scale-105 transition-all w-fit"
-              >
-                <span>Hemen Projenizi Başlatın</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+            <div className="space-y-3 mb-8">
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-[#111111]">
+                <CheckCircle2 className="h-4 w-4 text-[#E50914] shrink-0" />
+                <span>%100 Yerli & KVKK Uyumlu Altyapı</span>
+              </div>
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-[#111111]">
+                <CheckCircle2 className="h-4 w-4 text-[#E50914] shrink-0" />
+                <span>30 Dakika İçinde Satış & Teknik Dönüş</span>
+              </div>
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-[#111111]">
+                <CheckCircle2 className="h-4 w-4 text-[#E50914] shrink-0" />
+                <span>Tier III Veri Merkezi %99.98 SLA Garantisi</span>
+              </div>
             </div>
+
+            <Link
+              href="/kurumsal/iletisim"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#E50914] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#E50914]/25 hover:bg-[#B91C1C] hover:scale-105 transition-all cursor-pointer"
+            >
+              <span>Hemen Projenizi Başlatın</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
-          {/* Right Column: Stacked Deck (Cards in White #FFFFFF with #E5E5E5 border) */}
+          {/* Right Column: Stacked Deck of Cards */}
           <div className="lg:col-span-7 pt-0">
-            <ContainerScroll className="space-y-12 pb-8">
-              {WHY_US_CARDS.map((card, index) => {
-                const stickyTopOffset = 80 + index * 52;
-
-                return (
-                  <CardSticky
-                    key={card.id}
-                    index={index}
-                    style={{
-                      top: `${stickyTopOffset}px`,
-                      zIndex: index + 10,
-                    }}
-                    className="rounded-3xl border border-[#E5E5E5] bg-white p-7 shadow-xl shadow-slate-200/50 backdrop-blur-2xl transition-all"
-                  >
-                    {/* Top Tab Bar (Always visible when stacked) */}
-                    <div className="flex items-center justify-between gap-4 pb-4 mb-4 border-b border-[#E5E5E5]">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F9F9F9] border border-[#E5E5E5]"
-                          style={{ color: card.accent }}
-                        >
-                          {card.icon}
-                        </div>
-                        <span className="rounded-full bg-[#F4F4F0] border border-[#E5E5E5] px-3 py-1 text-xs font-mono font-bold text-[#111111]">
-                          {card.badge}
-                        </span>
+            <ContainerScroll className="space-y-8 sm:space-y-10 pb-8">
+              {WHY_US_CARDS.map((card, index) => (
+                <CardSticky
+                  key={card.id}
+                  index={index}
+                  incrementY={22}
+                  className="rounded-3xl border border-[#E5E5E5] bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/50 transition-all hover:border-[#E50914]/40"
+                >
+                  {/* Top Bar: Icon + Badge + Step Number */}
+                  <div className="flex items-center justify-between gap-4 pb-4 mb-4 border-b border-[#E5E5E5]">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#F9F9F9] border border-[#E5E5E5]"
+                        style={{ color: card.accent }}
+                      >
+                        {card.icon}
                       </div>
-
-                      {/* Number Tab */}
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono text-[#777777]">FAZ</span>
-                        <span
-                          className="font-mono text-2xl font-black rounded-lg px-2.5 py-0.5 bg-[#F9F9F9] border border-[#E5E5E5]"
-                          style={{ color: card.accent }}
-                        >
-                          {card.num}
-                        </span>
-                      </div>
+                      <span className="rounded-full bg-[#F4F4F0] border border-[#E5E5E5] px-3 py-1 text-xs font-mono font-bold text-[#111111]">
+                        {card.badge}
+                      </span>
                     </div>
 
-                    {/* Card Body Content */}
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#111111] mb-3">
-                      {card.title}
-                    </h3>
+                    {/* Step Number Badge */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono text-[#777777] hidden sm:inline">ADIM</span>
+                      <span
+                        className="font-mono text-xl sm:text-2xl font-black rounded-xl px-2.5 py-0.5 bg-[#F9F9F9] border border-[#E5E5E5]"
+                        style={{ color: card.accent }}
+                      >
+                        {card.num}
+                      </span>
+                    </div>
+                  </div>
 
-                    <p className="text-sm text-[#4A4A4A] leading-relaxed">
-                      {card.description}
-                    </p>
-                  </CardSticky>
-                );
-              })}
+                  {/* Card Title & Description */}
+                  <h3 className="text-lg sm:text-2xl font-bold text-[#111111] mb-2 sm:mb-3">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
+                    {card.description}
+                  </p>
+                </CardSticky>
+              ))}
             </ContainerScroll>
           </div>
 

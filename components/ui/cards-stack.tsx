@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { HTMLMotionProps, motion } from "framer-motion"
-
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { HTMLMotionProps, motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface CardStickyProps extends HTMLMotionProps<"div"> {
-  index: number
-  incrementY?: number
-  incrementZ?: number
+  index: number;
+  incrementY?: number;
+  incrementZ?: number;
 }
 
 const ContainerScroll = React.forwardRef<
@@ -19,21 +18,20 @@ const ContainerScroll = React.forwardRef<
     <div
       ref={ref}
       className={cn("relative w-full", className)}
-      style={{ perspective: "1000px", ...props.style }}
       {...props}
     >
       {children}
     </div>
-  )
-})
-ContainerScroll.displayName = "ContainerScroll"
+  );
+});
+ContainerScroll.displayName = "ContainerScroll";
 
 const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
   (
     {
       index,
-      incrementY = 20,
-      incrementZ = 10,
+      incrementY = 24,
+      incrementZ = 1,
       children,
       className,
       style,
@@ -41,17 +39,17 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
     },
     ref
   ) => {
-    const y = index * incrementY
-    const z = index * incrementZ
+    // Calculated sticky top position: base offset + increment per card
+    const y = 90 + index * incrementY;
+    const z = index * incrementZ;
 
     return (
       <motion.div
         ref={ref}
         layout="position"
         style={{
-          top: y,
-          z,
-          backfaceVisibility: "hidden",
+          top: `${y}px`,
+          zIndex: z + 10,
           ...style,
         }}
         className={cn("sticky", className)}
@@ -59,10 +57,10 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
       >
         {children}
       </motion.div>
-    )
+    );
   }
-)
+);
 
-CardSticky.displayName = "CardSticky"
+CardSticky.displayName = "CardSticky";
 
-export { ContainerScroll, CardSticky }
+export { ContainerScroll, CardSticky };

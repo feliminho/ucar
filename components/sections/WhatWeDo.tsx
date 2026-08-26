@@ -38,56 +38,56 @@ const softwareFeatures: FeatureCardItem[] = [
     title: 'Özel Yazılım Geliştirme',
     description: 'İş süreçlerine ve şirket ihtiyaçlarına özel sıfırdan geliştirilen web ve masaüstü yazılım sistemleri.',
     icon: <IconTerminal2 className="h-6 w-6" />,
-    link: '/yazilim/ozel-yazilim',
+    link: '/yazilim?hizmet=ozel-yazilim',
     tag: 'Web & Masaüstü',
   },
   {
     title: 'Mobil Uygulama (iOS & Android)',
     description: 'iPhone, iPad ve Google Play standartlarında modern native ve hibrit mobil uygulamalar.',
     icon: <IconDeviceMobile className="h-6 w-6" />,
-    link: '/yazilim/mobil-uygulama',
+    link: '/yazilim?hizmet=mobil-uygulama',
     tag: 'Swift / Flutter',
   },
   {
     title: 'Kurumsal Web & Portallar',
     description: 'SEO uyumlu, mobil duyarlı (responsive) ve yönetim panelli kurumsal web çözümleri.',
     icon: <IconWorld className="h-6 w-6" />,
-    link: '/yazilim/ozel-yazilim',
-    tag: 'Next.js 15',
+    link: '/yazilim?hizmet=ozel-yazilim',
+    tag: 'Next.js 16',
   },
   {
     title: 'ERP Kaynak Planlama',
     description: 'Stok, finans, muhasebe, satın alma ve üretim süreçlerini tek merkezde toplayan çözümler.',
     icon: <IconBuildingStore className="h-6 w-6" />,
-    link: '/yazilim/erp-crm',
+    link: '/yazilim?hizmet=erp-crm',
     tag: 'Stok & Depo',
   },
   {
     title: 'CRM Müşteri İlişkileri',
     description: 'Müşteri takibi, satış döngüsü, teklif yönetimi ve görev organizasyon sistemleri.',
     icon: <IconUsers className="h-6 w-6" />,
-    link: '/yazilim/erp-crm',
+    link: '/yazilim?hizmet=erp-crm',
     tag: 'Satış Hunisi',
   },
   {
     title: 'E-Ticaret & Sanal POS',
     description: 'B2B ve B2C e-ticaret platformları, sanal POS ve otomatik kargo entegrasyonu.',
     icon: <IconShoppingCart className="h-6 w-6" />,
-    link: '/yazilim/e-ticaret',
+    link: '/yazilim?hizmet=e-ticaret',
     tag: 'B2B & B2C',
   },
   {
     title: 'API & Pazaryeri Entegrasyonları',
     description: 'Trendyol, Hepsiburada, Amazon, Logo ve GİB E-Fatura çift yönlü senkronizasyon.',
     icon: <IconApiApp className="h-6 w-6" />,
-    link: '/yazilim/api-entegrasyon',
+    link: '/yazilim?hizmet=api-entegrasyon',
     tag: 'Tam Otomasyon',
   },
   {
     title: 'Yapay Zekâ (AI) & LLM Modelleri',
     description: 'OpenAI, Claude ve Gemini modelleriyle şirket içi akıllı asistanlar ve veri analitiği.',
     icon: <IconRobot className="h-6 w-6" />,
-    link: '/yazilim/yapay-zeka',
+    link: '/yazilim?hizmet=yapay-zeka',
     tag: 'GPT-4 & Gemini',
   },
 ];
@@ -97,21 +97,21 @@ const serverFeatures: FeatureCardItem[] = [
     title: 'NVMe VDS / VPS Sunucular',
     description: '%100 Paylaşımsız CPU/RAM kaynakları, Linux ve Windows NVMe sanal sunucu altyapısı.',
     icon: <IconServer className="h-6 w-6" />,
-    link: '/web-hosting/vds-sunucu',
+    link: '/sunucu-barindirma/vds-sunucu',
     tag: 'Ultra NVMe',
   },
   {
     title: 'Co-Location & Fiziksel Barındırma',
     description: 'Tier III İstanbul Veri Merkezi kabin, enerji ve fiziksel sunucu barındırma hizmeti.',
     icon: <IconDatabase className="h-6 w-6" />,
-    link: '/web-hosting/co-location',
+    link: '/sunucu-barindirma/fiziksel-sunucu',
     tag: 'Tier III SLA',
   },
   {
     title: 'SSD Web Hosting (cPanel & LiteSpeed)',
     description: 'NVMe SSD, cPanel ve LiteSpeed altyapısı ile ultra hızlı web barındırma.',
     icon: <IconCloud className="h-6 w-6" />,
-    link: '/web-hosting/ssd-hosting',
+    link: '/web-hosting',
     tag: 'LiteSpeed Hız',
   },
   {
@@ -125,28 +125,28 @@ const serverFeatures: FeatureCardItem[] = [
     title: 'Sunucu Kurulumu, Nginx & DevOps',
     description: 'Nginx, Apache, Docker, Kubernetes, MariaDB, MySQL ve Redis optimizasyonu.',
     icon: <IconSettings className="h-6 w-6" />,
-    link: '/kurumsal/iletisim',
+    link: '/kurumsal/iletisim?paket=DevOps%20ve%20Sunucu%20Yonetimi',
     tag: 'DevOps',
   },
   {
     title: 'Kurumsal Cloud Mail & Anti-Spam',
     description: 'Yüksek kotalı kurumsal bulut mail ve gelişmiş anti-spam filtreleme sistemi.',
     icon: <IconMail className="h-6 w-6" />,
-    link: '/e-posta/kurumsal-mail',
+    link: '/e-posta?paket=kurumsal-mail',
     tag: 'Cloud Mail',
   },
   {
     title: '1 Tbps+ DDoS Koruması & SSL',
     description: 'Donanımsal 1 Tbps+ DDoS filtreleme, SSL sertifikaları ve gelişmiş WAF koruması.',
     icon: <IconShieldLock className="h-6 w-6" />,
-    link: '/e-posta/guvenlik-filtreleme',
+    link: '/e-posta?paket=guvenlik-filtreleme',
     tag: '1 Tbps Shield',
   },
   {
     title: 'Otomatik Backup & Felaket Kurtarma',
     description: 'Otomatik periyodik yedekleme ve felaket anında hızlı geri yükleme çözümleri.',
     icon: <IconDeviceFloppy className="h-6 w-6" />,
-    link: '/kurumsal/iletisim',
+    link: '/kurumsal/iletisim?paket=Yedekleme%20ve%20Felaket%20Kurtarma',
     tag: 'Günlük Yedek',
   },
 ];
@@ -275,7 +275,7 @@ export function WhatWeDo() {
                 </div>
 
                 <Link
-                  href="/web-hosting"
+                  href="/sunucu-barindirma"
                   className="flex items-center gap-2 rounded-xl bg-[#111111] px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-[#1A1A1A] hover:scale-105 transition-all"
                 >
                   <span>Tüm Sunucu Sayfasını Aç</span>
