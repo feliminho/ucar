@@ -220,50 +220,6 @@ export function YazilimHeroSlider({
           </div>
         </div>
       </div>
-
-      {/* Bottom Progress Strip & Slide Selector Tabs */}
-      <div className="relative z-20 mx-auto max-w-7xl w-full pt-6 sm:pt-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
-          {HERO_SLIDES.map((slide, index) => {
-            const isActive = index === currentIndex;
-
-            return (
-              <button
-                key={slide.id}
-                onClick={() => {
-                  setCurrentIndex(index);
-                  if (onSelectService) onSelectService(slide.targetId);
-                }}
-                className={`relative flex flex-col items-start p-2 sm:p-2.5 rounded-xl text-left transition-all duration-300 backdrop-blur-md border ${
-                  isActive
-                    ? 'bg-white/15 border-[#E50914] shadow-md shadow-[#E50914]/20'
-                    : 'bg-black/30 border-white/10 hover:bg-white/10 opacity-70 hover:opacity-100'
-                }`}
-              >
-                {/* 3s Active Progress Fill Bar */}
-                {isActive && !isPaused && (
-                  <motion.div
-                    key={`progress-${index}`}
-                    initial={{ width: '0%' }}
-                    animate={{ width: '100%' }}
-                    transition={{ duration: 3, ease: 'linear' }}
-                    className="absolute bottom-0 left-0 right-0 h-1 bg-[#E50914] rounded-b-xl"
-                  />
-                )}
-
-                <span className={`text-[9px] sm:text-[10px] font-mono font-bold ${
-                  isActive ? 'text-[#E50914]' : 'text-gray-400'
-                }`}>
-                  0{index + 1}
-                </span>
-                <span className="text-[11px] sm:text-xs font-bold text-white line-clamp-1 mt-0.5">
-                  {slide.titleTop.replace('&', '').trim() || slide.titleHighlight}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
     </section>
   );
 }

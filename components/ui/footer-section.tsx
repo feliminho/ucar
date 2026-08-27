@@ -15,6 +15,7 @@ import {
   Globe,
   Share2,
 } from 'lucide-react';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 
 interface FooterLink {
   title: string;
@@ -63,7 +64,8 @@ const footerLinks: FooterSection[] = [
     label: 'İletişim & Destek',
     links: [
       { title: '0538 592 6467', href: 'tel:05385926467', icon: PhoneCall },
-      { title: 'WhatsApp Destek', href: 'https://wa.me/905385926467', icon: Mail },
+      { title: 'WhatsApp Destek', href: 'https://wa.me/905385926467', icon: FaWhatsapp },
+      { title: 'Instagram @ucaryazilim', href: 'https://instagram.com/ucaryazilim', icon: FaInstagram },
       { title: 'İstanbul Veri Merkezi', href: '/kurumsal?sayfa=veri-merkezi', icon: MapPin },
       { title: '7/24 Teknik SLA', href: '/kurumsal/iletisim', icon: Globe },
     ],

@@ -105,14 +105,6 @@ export const ImageComparison: React.FC<ImageComparisonProps> = ({
             draggable="false"
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-[#111111]/85 via-transparent to-[#E50914]/25" />
-          
-          {/* Left Layer Floating Badge */}
-          <div className="absolute top-6 left-6 z-20 flex flex-col gap-1 rounded-2xl bg-white/95 border border-[#E50914]/30 p-3.5 backdrop-blur-md shadow-xl">
-            <div className="flex items-center gap-2 text-[#E50914] font-bold text-sm">
-              <Code2 className="h-5 w-5" />
-              <span>{beforeLabel}</span>
-            </div>
-          </div>
         </div>
 
         {/* Right Side (Server Image & Clickable Area) */}
@@ -130,14 +122,6 @@ export const ImageComparison: React.FC<ImageComparisonProps> = ({
             draggable="false"
           />
           <div className="absolute inset-0 bg-gradient-to-tl from-[#111111]/85 via-transparent to-slate-900/30" />
-
-          {/* Right Layer Floating Badge */}
-          <div className="absolute top-6 right-6 z-20 flex flex-col items-end gap-1 rounded-2xl bg-white/95 border border-[#E5E5E5] p-3.5 backdrop-blur-md shadow-xl text-right">
-            <div className="flex items-center gap-2 text-[#111111] font-bold text-sm">
-              <span>{afterLabel}</span>
-              <Server className="h-5 w-5 text-[#E50914]" />
-            </div>
-          </div>
         </div>
 
         {/* Center Drag Divider Line & Handle (Red #E50914 & Black #111111) */}
