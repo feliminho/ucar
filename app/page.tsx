@@ -1,26 +1,28 @@
 'use client';
 
 import Link from 'next/link';
-import ElegantCarousel from '@/components/ui/elegant-carousel';
 import { CoreServiceCards } from '@/components/sections/CoreServiceCards';
 import { WhatWeDo } from '@/components/sections/WhatWeDo';
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
 import Contact from '@/components/ui/contact-01';
 import { Accordion04 } from '@/components/ui/accordion-04';
 import { DomainSearchInput } from '@/components/ui/domain-search-input';
+import { InteractiveSelector } from '@/components/ui/interactive-selector';
 import { Sparkles, Server, Shield, Cloud, Gauge, HelpCircle } from 'lucide-react';
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#F9F9F9] text-[#111111]">
       
-      {/* 1. GİRİŞ HERO: ELEGANT CAROUSEL */}
-      <section className="relative border-b border-[#E5E5E5] bg-[#F9F9F9]">
-        <ElegantCarousel />
+      {/* 1. GİRİŞ HERO: FULL-SCREEN HOVER INTERACTIVE SELECTOR */}
+      <section className="relative border-b border-[#222222] bg-[#0A0A0A]">
+        <InteractiveSelector />
+      </section>
 
-        {/* Feature 4-Pillar Glass Strip Under Carousel */}
-        <div className="relative z-10 mx-auto max-w-7xl px-6 -mt-6 mb-12">
-          <div className="rounded-2xl border border-[#E5E5E5] bg-white p-5 shadow-xl shadow-slate-200/50 backdrop-blur-xl">
+      {/* Feature 4-Pillar SLA & Infrastructure Strip */}
+      <section className="relative py-8 bg-[#F9F9F9]">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="rounded-2xl border border-[#E5E5E5] bg-white p-5 shadow-lg shadow-slate-200/50">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#E5E5E5]">
               
               {/* 1. Uptime */}

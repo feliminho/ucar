@@ -22,6 +22,7 @@ import {
   ExternalLink,
   Lock,
 } from 'lucide-react';
+import { HeroParallax } from '@/components/ui/hero-parallax';
 
 const KURUMSAL_SECTIONS = [
   { id: 'all', title: 'Tüm Kurumsal Bilgiler' },
@@ -221,50 +222,10 @@ function KurumsalContent() {
           </section>
         )}
 
-        {/* SECTION C: REFERANSLAR & PROJELER */}
+        {/* SECTION C: REFERANSLAR & PROJELER (3D HERO PARALLAX) */}
         {(activeSection === 'all' || activeSection === 'referanslar') && (
-          <section className="mx-auto max-w-7xl px-6" id="referanslar">
-            <div className="rounded-3xl border border-[#E5E5E5] bg-white p-8 sm:p-12 shadow-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-[#E50914]">
-                  <Award className="h-6 w-6" />
-                </div>
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111111]">
-                    Referanslar & Tamamlanan Projeler
-                  </h2>
-                  <p className="text-xs text-[#555555]">Farklı sektörlerden yüzlerce mutlu kurumsal müşteri.</p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  {
-                    title: 'Global Lojistik Portalı',
-                    category: 'Özel Yazılım & Entegrasyon',
-                    desc: '12 ülkede 500+ araç filosunun anlık GPS takibi ve GİB E-İrsaliye otomasyonu.',
-                  },
-                  {
-                    title: 'B2B Endüstriyel E-Ticaret',
-                    category: 'E-Ticaret & Sanal POS',
-                    desc: '10.000+ aktif bayiye sahip toptan yedek parça sipariş ve ERP senkronizasyon sistemi.',
-                  },
-                  {
-                    title: 'Kurumsal Sigorta Mobil Uygulaması',
-                    category: 'iOS & Android Native',
-                    desc: '100.000+ kullanıcı için anlık poliçe sorgulama, hasar bildirimi ve ödeme platformu.',
-                  },
-                ].map((proj, idx) => (
-                  <div key={idx} className="rounded-2xl border border-[#E5E5E5] bg-[#F9F9F9] p-6">
-                    <span className="text-[11px] font-bold font-mono text-[#E50914] block mb-1 uppercase tracking-wider">
-                      {proj.category}
-                    </span>
-                    <h4 className="font-bold text-base text-[#111111] mb-2">{proj.title}</h4>
-                    <p className="text-xs text-[#555555] leading-relaxed">{proj.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <section className="w-full overflow-hidden rounded-3xl border border-neutral-800 my-8 shadow-2xl" id="referanslar">
+            <HeroParallax />
           </section>
         )}
 

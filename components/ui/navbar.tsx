@@ -20,6 +20,13 @@ type MenuProps = {
 const Menu = ({ list }: MenuProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
+  const handleClose = () => {
+    setHovered(null);
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  };
+
   return (
     <MotionConfig transition={{ bounce: 0, type: 'tween', duration: 0.18 }}>
       <nav className="relative">
@@ -41,12 +48,7 @@ const Menu = ({ list }: MenuProps) => {
                     hover:text-[#E50914]
                   `}
                   href={item.url}
-                  onClick={() => {
-                    setHovered(null);
-                    if (typeof window !== 'undefined') {
-                      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                    }
-                  }}
+                  onClick={handleClose}
                 >
                   <span className="whitespace-nowrap">{item.title}</span>
                   {item.dropdown && (
@@ -71,7 +73,7 @@ const Menu = ({ list }: MenuProps) => {
                   />
                 )}
 
-                {/* Dropdown Menu */}
+                {/* Standard Clean Dropdown Menu */}
                 <AnimatePresence>
                   {item.dropdown && isHovered && (
                     <motion.div
@@ -81,20 +83,15 @@ const Menu = ({ list }: MenuProps) => {
                       transition={{ duration: 0.15 }}
                       className="absolute left-0 top-full pt-1 z-50 min-w-[280px]"
                     >
-                      <div className="flex flex-col rounded-2xl bg-white border border-[#E5E5E5] p-2.5 shadow-2xl">
+                      <div className="flex flex-col rounded-2xl bg-white border border-[#E5E5E5] p-2 shadow-2xl">
                         {item.items?.map((nav) => (
                           <Link
                             key={`link-${nav.id}`}
                             href={nav.url}
-                            onClick={() => {
-                              setHovered(null);
-                              if (typeof window !== 'undefined') {
-                                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                              }
-                            }}
-                            className="flex items-center rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#1A1A1A] transition-colors hover:bg-red-50 hover:text-[#E50914]"
+                            onClick={handleClose}
+                            className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#1A1A1A] transition-colors hover:bg-red-50 hover:text-[#E50914]"
                           >
-                            {nav.title}
+                            <span>{nav.title}</span>
                           </Link>
                         ))}
                       </div>

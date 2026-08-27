@@ -19,6 +19,8 @@ import {
   Check,
   Layers,
 } from 'lucide-react';
+import { YazilimScrollCarousel } from '@/components/ui/scroll-x-carousel-demo';
+import { YazilimHeroSlider } from '@/components/sections/YazilimHeroSlider';
 
 interface SoftwareService {
   id: string;
@@ -233,60 +235,16 @@ function YazilimContent() {
 
   return (
     <>
-      {/* 1. HERO SECTION (ALWAYS AT TOP) */}
-      <section className="relative min-h-[460px] lg:min-h-[500px] flex flex-col justify-between text-white py-14 px-6 sm:px-10 lg:px-12 border-b border-slate-800 overflow-hidden">
-        {/* Background Image & Multi-layer Dark Gradient */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/software-hero.jpg"
-            alt="Özel Yazılım Çözümleri & Yazılım Mühendisliği"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1D]/95 via-[#0F172A]/85 to-[#0A0F1D]/75" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1D] via-transparent to-[#0A0F1D]/60" />
-        </div>
+      {/* 1. DİNAMİK YAZILIM HERO SLIDER (3 SANİYEDE BİR DÖNEN HİZMET DALLARI) */}
+      <YazilimHeroSlider onSelectService={setSelectedId} />
 
-        <div className="relative z-10 mx-auto max-w-7xl w-full">
-          <div className="max-w-3xl text-left">
-            <h1
-              style={{ color: '#F9F9F9' }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight drop-shadow-md"
-            >
-              Özel Yazılım & <br />
-              <span className="text-[#E50914]">
-                Kurumsal Dijital Dönüşüm
-              </span>
-            </h1>
+      {/* 2. MÜHENDİSLİK PORTFÖYÜMÜZ (YATAY SCROLL-X CAROUSEL) */}
+      <div id="muhendislik-portfoyumuz">
+        <YazilimScrollCarousel onSelectService={setSelectedId} />
+      </div>
 
-            <p
-              style={{ color: '#F4F4F0' }}
-              className="text-base sm:text-lg mt-4 leading-relaxed max-w-2xl font-medium drop-shadow-sm opacity-95"
-            >
-              İşletmenizin gereksinimlerine göre sıfırdan geliştirilen web, mobil, ERP ve yapay zekâ yazılımları ile sektörünüzde teknolojik liderliği elde edin.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 mt-8">
-              <Link
-                href="/kurumsal/iletisim"
-                className="flex items-center gap-2 rounded-2xl bg-[#E50914] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#E50914]/30 hover:bg-[#B91C1C] hover:scale-105 transition-all cursor-pointer"
-              >
-                <span>Projenizi Başlatın</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-
-              <a
-                href="#secilen-hizmet"
-                className="flex items-center gap-2 rounded-2xl border border-white/20 bg-slate-900/80 px-7 py-3.5 text-sm font-bold text-slate-200 hover:bg-white/10 hover:text-white transition-all backdrop-blur-md cursor-pointer"
-              >
-                <span>Hizmetleri İnceleyin</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. SERVICES CENTER SHOWCASE */}
-      <section className="py-16 px-6 bg-white border-b border-[#E5E5E5]" id="secilen-hizmet">
+      {/* 3. SERVICES CENTER SHOWCASE (DETAYLI SEÇİLEN HİZMET KARTI) */}
+      <section className="py-20 px-6 bg-white border-b border-[#E5E5E5]" id="secilen-hizmet">
         <div className="mx-auto max-w-7xl">
           
           {/* CENTER FEATURED SERVICE DETAIL CARD */}
@@ -371,81 +329,6 @@ function YazilimContent() {
 
           </div>
 
-        </div>
-      </section>
-
-      {/* 3. ALL SOFTWARE SERVICES GRID (AŞAĞIDA BULUNAN DİĞER HİZMETLER) */}
-      <section className="py-20 px-6 bg-[#F9F9F9]" id="tum-yazilim-hizmetleri">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] tracking-tight">
-              Tüm Yazılım Mühendisliği Hizmetlerimiz
-            </h2>
-            <p className="text-sm sm:text-base text-[#555555] mt-2">
-              İhtiyacınız olan uzmanlığı seçin; uçtan uca modern mimariler ve tam kaynak kod mülkiyeti ile geliştirelim.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SOFTWARE_SERVICES.map((srv) => {
-              const SrvIcon = srv.icon;
-              const isCurrent = srv.id === selectedId;
-              return (
-                <div
-                  key={srv.id}
-                  onClick={() => {
-                    setSelectedId(srv.id);
-                    const el = document.getElementById('secilen-hizmet');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className={`group relative flex flex-col justify-between rounded-3xl border bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer ${
-                    isCurrent
-                      ? 'border-[#E50914] ring-2 ring-[#E50914]/20 shadow-xl shadow-red-500/10'
-                      : 'border-[#E5E5E5] shadow-sm hover:border-[#E50914]'
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-4 mb-6">
-                      <div className={`flex h-14 w-14 items-center justify-center rounded-2xl transition-colors duration-300 ${
-                        isCurrent
-                          ? 'bg-[#E50914] text-white shadow-md'
-                          : 'bg-red-50 text-[#E50914] border border-red-100 group-hover:bg-[#E50914] group-hover:text-white'
-                      }`}>
-                        <SrvIcon className="h-7 w-7" />
-                      </div>
-                      <span className="rounded-full bg-[#F4F4F0] border border-[#E5E5E5] px-3 py-1 text-[11px] font-mono font-bold text-slate-700">
-                        {srv.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold text-[#111111] mb-2.5 group-hover:text-[#E50914] transition-colors">
-                      {srv.title}
-                    </h3>
-                    <p className="text-xs text-[#555555] leading-relaxed mb-6">
-                      {srv.desc}
-                    </p>
-
-                    {/* Highlights List */}
-                    <div className="space-y-2 mb-6 pt-4 border-t border-[#E5E5E5]">
-                      {srv.highlights.slice(0, 3).map((h, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-[#E50914] flex-shrink-0" />
-                          <span>{h}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#E5E5E5] flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#E50914] group-hover:underline">
-                      {isCurrent ? 'Şu An Seçili ✓' : 'Detayları İncele →'}
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-[#E50914] transition-transform group-hover:translate-x-1" />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 
